@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Objects/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Game/Art/table_walls.png" type="Texture" id=3]
+[ext_resource path="res://Game/Objects/Bumper.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Objects/Flipper.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -11,7 +13,7 @@ extents = Vector2( 100, 1000 )
 script = ExtResource( 2 )
 
 [node name="Walls" type="Sprite" parent="."]
-position = Vector2( 372, 293 )
+position = Vector2( 400, 293 )
 texture = ExtResource( 3 )
 
 [node name="Wall" type="StaticBody2D" parent="Walls"]
@@ -44,3 +46,17 @@ shape = SubResource( 1 )
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 295, 224 )
+
+[node name="Bumper" parent="." instance=ExtResource( 4 )]
+position = Vector2( 525, 450 )
+
+[node name="Bumper2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 275, 450 )
+scale = Vector2( -1, 1 )
+
+[node name="Flipper" parent="." instance=ExtResource( 5 )]
+position = Vector2( 475, 525 )
+
+[node name="Flipper2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 325, 525 )
+scale = Vector2( -1, 1 )
