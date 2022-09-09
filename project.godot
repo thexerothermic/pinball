@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Coffee Rush"
+config/name="Galaxy Pinball"
+config/description="CAPstone project"
 run/main_scene="res://Game/Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 

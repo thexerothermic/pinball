@@ -56,7 +56,8 @@ anchor_right = 0.908784
 anchor_bottom = 0.228571
 theme = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
-bbcode_text = "[center]Coffee Rush[/center]"
+bbcode_text = "[center]Galaxy Pinball[/center]"
+text = "Galaxy Pinball"
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu"]

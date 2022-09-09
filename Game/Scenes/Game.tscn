@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Game/Objects/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
+[ext_resource path="res://Game/Art/table_walls.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100, 1000 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Walls" type="Sprite" parent="."]
+position = Vector2( 372, 293 )
+texture = ExtResource( 3 )
+
+[node name="Wall" type="StaticBody2D" parent="Walls"]
+position = Vector2( 281, -187 )
+rotation = -0.136346
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
+shape = SubResource( 1 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2( -267, -229 )
+rotation = 0.142715
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+shape = SubResource( 1 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+position = Vector2( -4.99997, -370 )
+rotation = 1.56748
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+shape = SubResource( 1 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+position = Vector2( 26, 386 )
+rotation = 1.56748
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+shape = SubResource( 1 )
+
+[node name="Ball" parent="." instance=ExtResource( 1 )]
+position = Vector2( 295, 224 )
