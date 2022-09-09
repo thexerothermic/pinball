@@ -1,0 +1,80 @@
+[gd_resource type="Theme" load_steps=17 format=2]
+
+[ext_resource path="res://Framework/GUI/Fonts/Ready/Regular_11.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Framework/GUI/Style/Panel.tres" type="StyleBox" id=2]
+[ext_resource path="res://Framework/GUI/Graphics/Button.png" type="Texture" id=3]
+[ext_resource path="res://Framework/GUI/Graphics/Button_Hover.png" type="Texture" id=4]
+[ext_resource path="res://Framework/GUI/Graphics/Button_Press.png" type="Texture" id=5]
+[ext_resource path="res://Framework/GUI/Graphics/Panel3.png" type="Texture" id=6]
+[ext_resource path="res://Framework/GUI/Graphics/close.png" type="Texture" id=7]
+[ext_resource path="res://Framework/GUI/Graphics/ScrollBar_Button.png" type="Texture" id=8]
+[ext_resource path="res://Framework/GUI/Graphics/ScrollBar_Back.png" type="Texture" id=9]
+[ext_resource path="res://Framework/GUI/Style/Scrollbar_Press.tres" type="StyleBox" id=10]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 30, 13 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 30, 13 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 30, 13 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 8, 11 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 16, 12 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 26, 24 )
+margin_left = 6.0
+margin_right = 6.0
+margin_top = 6.0
+margin_bottom = 6.0
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 24.0
+
+[resource]
+default_font = ExtResource( 1 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 4 )
+Panel/styles/panel = ExtResource( 2 )
+PopupDialog/styles/panel = ExtResource( 2 )
+VScrollBar/styles/grabber = SubResource( 6 )
+VScrollBar/styles/grabber_highlight = ExtResource( 10 )
+VScrollBar/styles/grabber_pressed = ExtResource( 10 )
+VScrollBar/styles/scroll = SubResource( 7 )
+WindowDialog/colors/title_color = Color( 0.992157, 1, 0, 1 )
+WindowDialog/icons/close = ExtResource( 7 )
+WindowDialog/icons/close_highlight = ExtResource( 7 )
+WindowDialog/styles/panel = SubResource( 5 )

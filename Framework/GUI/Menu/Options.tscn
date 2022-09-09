@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Framework/GUI/Object/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Framework/GUI/Object/HeaderLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Framework/GUI/Object/StandardLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Framework/GUI/Code/Options.gd" type="Script" id=4]
+[ext_resource path="res://Framework/GUI/Theme/standard_theme.tres" type="Theme" id=5]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+margin_right = -6.10352e-05
+margin_bottom = -3.05176e-05
+theme = ExtResource( 5 )
+
+[node name="Header" type="Panel" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 0.133
+margin_bottom = 0.0999985
+
+[node name="HeaderLabel" parent="Panel/Header" instance=ExtResource( 2 )]
+margin_top = 10.0
+theme = ExtResource( 5 )
+bbcode_text = "[center]Options"
+text = "[center]Options"
+
+[node name="MenuButton" parent="Panel/Header" instance=ExtResource( 1 )]
+anchor_left = 0.83
+anchor_bottom = 0.9
+margin_left = -3.05176e-05
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 0.0
+text = "Close"
+name_of_master_node = "Options"
+function_name_on_click = "close"
+
+[node name="Contents" type="Panel" parent="Panel"]
+anchor_top = 0.133
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.0999985
+
+[node name="Fullscreen" type="CheckBox" parent="Panel/Contents"]
+margin_left = 15.0
+margin_top = 14.0
+margin_right = 123.0
+margin_bottom = 38.0
+theme = ExtResource( 5 )
+text = "Full screen"
+
+[node name="MasterVolume" type="HSlider" parent="Panel/Contents"]
+margin_left = 23.0
+margin_top = 104.0
+margin_right = 348.0
+margin_bottom = 120.0
+
+[node name="StandardLabel" parent="Panel/Contents/MasterVolume" instance=ExtResource( 3 )]
+margin_left = -9.0
+margin_top = -33.0
+margin_right = 191.0
+margin_bottom = -1.0
+bbcode_text = "Volume (Master)"
+text = "Volume (Master)"
+
+[node name="Music" type="HSlider" parent="Panel/Contents"]
+margin_left = 51.0
+margin_top = 158.0
+margin_right = 351.0
+margin_bottom = 174.0
+value = 50.0
+
+[node name="StandardLabel2" parent="Panel/Contents/Music" instance=ExtResource( 3 )]
+margin_left = -23.0
+margin_top = -35.0
+margin_right = 177.0
+margin_bottom = -3.0
+bbcode_text = "Music"
+text = "Music"
+
+[node name="SFX" type="HSlider" parent="Panel/Contents"]
+margin_left = 49.0
+margin_top = 212.0
+margin_right = 349.0
+margin_bottom = 228.0
+
+[node name="StandardLabel3" parent="Panel/Contents/SFX" instance=ExtResource( 3 )]
+margin_left = -20.0
+margin_top = -33.0
+margin_right = 180.0
+margin_bottom = -1.0
+bbcode_text = "SFX"
+text = "SFX"

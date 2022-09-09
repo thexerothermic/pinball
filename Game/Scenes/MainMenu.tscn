@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Framework/GUI/Code/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Framework/GUI/Object/MainMenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Framework/GUI/Object/TitleLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Framework/GUI/Menu/Options.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Framework/GUI/Menu/Credits.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Framework/GUI/Fonts/Ready/Title_28.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Framework/GUI/Theme/standard_theme.tres" type="Theme" id=7]
+[ext_resource path="res://Game/Thing.png" type="Texture" id=8]
+[ext_resource path="res://Framework/Branding/itch_black.png" type="Texture" id=9]
+[ext_resource path="res://Framework/Branding/ng_logo.png" type="Texture" id=10]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Backdrop" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.344
+anchor_top = 0.25
+anchor_right = 0.656
+anchor_bottom = 0.417
+margin_left = -0.200012
+margin_top = -120.0
+margin_right = 0.200012
+margin_bottom = -120.2
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 256.0
+margin_top = 50.0
+margin_right = -248.0
+margin_bottom = -445.0
+
+[node name="Title" parent="Menu" instance=ExtResource( 3 )]
+anchor_left = 0.0641892
+anchor_right = 0.908784
+anchor_bottom = 0.228571
+theme = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_text = "[center]Coffee Rush[/center]"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
+anchor_left = 0.0641892
+anchor_top = 0.380952
+anchor_right = 0.908784
+anchor_bottom = 0.571429
+margin_bottom = -3.8147e-06
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Play" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_right = 83.0
+margin_bottom = 20.0
+text = "Play"
+function_name_on_click = "play_click"
+
+[node name="Options" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 87.0
+margin_right = 145.0
+margin_bottom = 20.0
+text = "Options"
+function_name_on_click = "options_click"
+
+[node name="Credits" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 149.0
+margin_right = 205.0
+margin_bottom = 20.0
+text = "Credits"
+function_name_on_click = "credits_click"
+
+[node name="SubMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Options" parent="SubMenu" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Credits" parent="SubMenu" instance=ExtResource( 5 )]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 615.0
+margin_top = 542.0
+margin_right = 800.0
+margin_bottom = 599.5
+rect_min_size = Vector2( 74, 23 )
+texture = ExtResource( 9 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 497.0
+margin_right = 103.0
+margin_bottom = 597.0
+texture = ExtResource( 10 )
+expand = true

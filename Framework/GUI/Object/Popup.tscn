@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Framework/GUI/Code/Popup.gd" type="Script" id=1]
+[ext_resource path="res://Framework/GUI/Theme/standard_theme.tres" type="Theme" id=2]
+
+[node name="Popup" type="AcceptDialog"]
+margin_left = 300.0
+margin_top = 240.0
+margin_right = 500.0
+margin_bottom = 360.0
+mouse_filter = 2
+theme = ExtResource( 2 )
+popup_exclusive = true
+dialog_text = "acadsadasdaasd"
+dialog_autowrap = true
+script = ExtResource( 1 )

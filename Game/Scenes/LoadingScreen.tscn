@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Framework/Singleton Dependencies/LoadingProgressBar.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Framework/GUI/Theme/standard_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Framework/GUI/Graphics/loading_screen_backdrop.jpg" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.490196, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="LoadingScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Backdrop2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="ColorRect" parent="."]
+anchor_left = 0.3225
+anchor_top = 0.401667
+anchor_right = 0.6975
+anchor_bottom = 0.555
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.325
+anchor_top = 0.505
+anchor_right = 0.692
+anchor_bottom = 0.54
+margin_right = 0.399963
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+percent_visible = false
+script = ExtResource( 1 )
+
+[node name="Backdrop" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.49829
+margin_top = -1.49829
+margin_right = -1.49829
+margin_bottom = -1.49829
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.327591
+anchor_top = 0.408057
+anchor_right = 0.827595
+anchor_bottom = 0.458057
+theme = ExtResource( 3 )
+text = "Loading..."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProgressLabel" type="Label" parent="."]
+anchor_left = 0.328125
+anchor_top = 0.442102
+anchor_right = 0.82812
+anchor_bottom = 0.492102
+theme = ExtResource( 3 )
+text = "0% Complete"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Joke" type="Label" parent="."]
+visible = false
+margin_left = 262.996
+margin_top = 274.562
+margin_right = 662.992
+margin_bottom = 304.562
+text = "..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadingGear" type="TextureRect" parent="."]
+visible = false
+margin_left = 472.549
+margin_top = 216.139
+margin_right = 600.549
+margin_bottom = 344.139
+rect_scale = Vector2( 0.15, 0.15 )
+rect_pivot_offset = Vector2( 64, 64 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
