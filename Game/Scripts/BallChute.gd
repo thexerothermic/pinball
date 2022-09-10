@@ -9,7 +9,9 @@ extends Area2D
 func _ready():
 	self.connect("body_entered",self,"reset_ball")
 func reset_ball(body:Node):
-	body.reset = true
+	body.set("reset",true)
+	print("attempt reset")
+	print(body.reset)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

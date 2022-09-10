@@ -10,6 +10,7 @@ func _ready():
 	myTimer.connect("timeout",self,"challenge")                #Connects the signal to a custom function
 	#reset_timer()        #Called once to get the timer going
 
+	set_physics_process(true)
 	self.connect("body_entered",self,"bumped")
 func reset_timer():
 	myTimer.wait_time=4
@@ -23,9 +24,10 @@ func bumped(body:Node):
 	#Called when the ball hits an object. The ball is in charge of creating bumped requests on other objects
 	if(body.has_method("bumped")):
 		body.bumped(self)
-		
+
+
+
 func _integrate_forces(state):
-	state.linear_velocity = state.linear_velocity
 	if(reset):
-		self.global_position = Vector2(400,400)
-		reset = false
+		reset=false
+		state.transform.origin=Vector2(400,400)
