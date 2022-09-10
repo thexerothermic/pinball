@@ -63,12 +63,16 @@ position = Vector2( 405, 576 )
 script = ExtResource( 7 )
 
 [node name="Flippers" type="Node2D" parent="."]
-script = ExtResource( 8 )
 
-[node name="Flipper2" parent="Flippers" instance=ExtResource( 5 )]
+[node name="left_flipper" parent="Flippers" instance=ExtResource( 5 )]
 position = Vector2( 325, 525 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
+scale = Vector2( -1, 1 )
+script = ExtResource( 8 )
+min_deg = -90
+max_deg = 0
+speed = -900
 
-[node name="Flipper" parent="Flippers" instance=ExtResource( 5 )]
+[node name="right_flipper" parent="Flippers" instance=ExtResource( 5 )]
 position = Vector2( 475, 525 )
+script = ExtResource( 8 )
+action = "right_flipper"
