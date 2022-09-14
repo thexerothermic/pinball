@@ -15,6 +15,18 @@ func _ready():
 	self.contact_monitor=true
 	self.contacts_reported=4
 
+
+const max_scale=0.95
+const min_scale=0.75
+func ball_scaling():
+	var val=max_scale-min_scale
+	var scale_me=self.transform.origin.y/600
+	var oh_boy=min_scale+(val*scale_me)
+	get_node("Sprite").scale=Vector2(oh_boy,oh_boy)
+
+func _process(delta):
+	ball_scaling()
+
 func reset_timer():
 	myTimer.wait_time=4
 	myTimer.start()
