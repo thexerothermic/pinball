@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-onready var right_flipper = $"Flipper"
-onready var left_flipper = $"Flipper2"
 export var action:String="left_flipper"
 export var min_deg = 0
 export var max_deg = 90
