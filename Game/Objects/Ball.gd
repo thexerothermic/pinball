@@ -12,6 +12,7 @@ func _ready():
 	myTimer.connect("timeout",self,"challenge")                #Connects the signal to a custom function
 	reset_timer()        #Called once to get the timer going
 
+	self.custom_integrator=true
 	self.contact_monitor=true
 	self.contacts_reported=4
 
@@ -28,7 +29,7 @@ func _process(delta):
 	ball_scaling()
 
 func reset_timer():
-	myTimer.wait_time=4
+	myTimer.wait_time=8
 	myTimer.start()
 
 func challenge():
@@ -42,5 +43,5 @@ func bumped(body:Node):
 func _integrate_forces(state):
 	if(reset):
 		reset=false
-		state.transform.origin=Vector2(400,400)
+		state.transform.origin=get_parent().get_node("Launcher").position
 	

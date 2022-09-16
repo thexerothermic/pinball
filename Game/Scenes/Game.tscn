@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Game/Objects/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Game/Art/table_walls.png" type="Texture" id=3]
 [ext_resource path="res://Game/Objects/Bumper.tscn" type="PackedScene" id=4]
@@ -8,9 +7,13 @@
 [ext_resource path="res://Game/Objects/BallChute.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Scripts/BallChute.gd" type="Script" id=7]
 [ext_resource path="res://Game/Scripts/flipper.gd" type="Script" id=8]
+[ext_resource path="res://Game/Scripts/Launcher.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.815686, 0.984314, 0, 1 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -47,10 +50,6 @@ rotation = 1.56748
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
 shape = SubResource( 1 )
 
-[node name="Ball" parent="." instance=ExtResource( 1 )]
-position = Vector2( 398, 64 )
-contact_monitor = false
-
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 525, 450 )
 
@@ -76,3 +75,16 @@ speed = -900
 position = Vector2( 475, 525 )
 script = ExtResource( 8 )
 action = "right_flipper"
+
+[node name="Launcher" type="Position2D" parent="."]
+position = Vector2( 610, 546 )
+script = ExtResource( 9 )
+
+[node name="ProgressBar" type="ProgressBar" parent="Launcher"]
+visible = false
+margin_left = -21.0
+margin_top = 15.0
+margin_right = 16.0
+margin_bottom = 29.0
+custom_styles/fg = SubResource( 2 )
+percent_visible = false
