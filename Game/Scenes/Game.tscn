@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://Game/sfx/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Game/Art/table_walls.png" type="Texture" id=3]
 [ext_resource path="res://Game/Objects/Bumper.tscn" type="PackedScene" id=4]
@@ -71,10 +72,19 @@ min_deg = -90
 max_deg = 0
 speed = -900
 
+[node name="flipper_sound" type="AudioStreamPlayer" parent="Flippers/left_flipper"]
+stream = ExtResource( 1 )
+volume_db = 1.169
+bus = "SFX"
+
 [node name="right_flipper" parent="Flippers" instance=ExtResource( 5 )]
 position = Vector2( 475, 525 )
 script = ExtResource( 8 )
 action = "right_flipper"
+
+[node name="flipper_sound" type="AudioStreamPlayer" parent="Flippers/right_flipper"]
+stream = ExtResource( 1 )
+bus = "SFX"
 
 [node name="Launcher" type="Position2D" parent="."]
 position = Vector2( 610, 546 )
