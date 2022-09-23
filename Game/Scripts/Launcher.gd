@@ -39,3 +39,4 @@ func launch_ball(ball_ref:RigidBody2D):
 	ball_ref.reset=false
 	ball_ref.linear_velocity+=Vector2(0,clamp(-pressure-200,-1000,-200))
 	print("Launch Pressure: "+str(clamp(-pressure-200,-1000,-200)))
+	$launcher_sound.play()

@@ -9,6 +9,7 @@ extends Area2D
 func _ready():
 	self.connect("body_entered",self,"reset_ball")
 func reset_ball(body:Node):
+	$chute_sound.play()
 #	body.set("reset",true)
 	body.queue_free()
 	QuickTimer.create_timer(get_parent().get_node("Launcher"),"spawn_ball",[],1)

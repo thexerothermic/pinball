@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flipper.mp3-792f6097409a23c0aa21f6e690f02619.mp3str"
+
+[deps]
+
+source_file="res://Game/sfx/flipper.mp3"
+dest_files=[ "res://.import/flipper.mp3-792f6097409a23c0aa21f6e690f02619.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
