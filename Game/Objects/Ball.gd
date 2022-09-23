@@ -34,7 +34,7 @@ func reset_timer():
 
 func challenge():
 	reset_timer()
-	self.linear_velocity+=Vector2(rand_range(-1000,1000),rand_range(-1000,1000))            #Applies a random force to our ball
+#	self.linear_velocity+=Vector2(rand_range(-1000,1000),rand_range(-1000,1000))            #Applies a random force to our ball
 
 func bumped(body:Node):
 	#Called when the ball hits an object. The ball is in charge of creating bumped requests on other objects
@@ -44,4 +44,5 @@ func _integrate_forces(state):
 	if(reset):
 		reset=false
 		state.transform.origin=get_parent().get_node("Launcher").position
-	
+	else:
+		state.linear_velocity.y+=3

@@ -4,7 +4,7 @@
 [ext_resource path="res://Game/Objects/Ball.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=2]
-friction = 0.1
+friction = 0.0
 bounce = 0.9
 
 [sub_resource type="CircleShape2D" id=1]
@@ -13,7 +13,7 @@ bounce = 0.9
 mode = 2
 mass = 1.02041
 physics_material_override = SubResource( 2 )
-gravity_scale = 3.0
+gravity_scale = 10.0
 custom_integrator = true
 continuous_cd = 1
 contacts_reported = 4
