@@ -33,7 +33,6 @@ position = Vector2( 281, -187 )
 rotation = -0.136346
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Wall2" type="StaticBody2D" parent="Walls"]
@@ -61,6 +60,13 @@ shape = SubResource( 1 )
 position = Vector2( 503, 435 )
 
 [node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper"]
+stream = ExtResource( 1 )
+
+[node name="Bumper3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 549, 80 )
+rotation = -1.17105
+
+[node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper3"]
 stream = ExtResource( 1 )
 
 [node name="Bumper2" parent="." instance=ExtResource( 4 )]
