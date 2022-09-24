@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Game/sfx/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Game/Art/leftbottomframe.png" type="Texture" id=12]
 [ext_resource path="res://Game/Art/rightbottomframe.png" type="Texture" id=13]
 [ext_resource path="res://Game/Art/leftgutter.png" type="Texture" id=14]
+[ext_resource path="res://Game/Objects/Target.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -162,7 +163,7 @@ scale = Vector2( 0.236076, 0.222324 )
 texture = ExtResource( 13 )
 
 [node name="Launcher" type="Position2D" parent="."]
-position = Vector2( 272, 343 )
+position = Vector2( 608, 546 )
 script = ExtResource( 9 )
 
 [node name="ProgressBar" type="ProgressBar" parent="Launcher"]
@@ -211,3 +212,11 @@ default_color = Color( 1, 1, 1, 1 )
 position = Vector2( 14.9416, 0.526184 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
+
+[node name="Area2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( 252, 349 )
+rotation = -1.59854
+
+[node name="Area2D2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 554, 349 )
+rotation = 2.17667
