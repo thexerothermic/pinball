@@ -70,7 +70,7 @@ func audio_test():
 	#QuickTimer.create_timer(SoundSystem,"play_music",["Battle", ".ogg"],1)
 	
 	
-#	SoundSystem.play_music("loop",".ogg")
+#	SoundSystem.play_music("Space Sprinkles",".ogg")
 	pass
 
 	#SoundSystem.set_music_volume(20)

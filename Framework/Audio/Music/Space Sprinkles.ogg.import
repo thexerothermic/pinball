@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Space Sprinkles.ogg-91e1323c81a8446a980b83e8960e157e.oggstr"
+
+[deps]
+
+source_file="res://Framework/Audio/Music/Space Sprinkles.ogg"
+dest_files=[ "res://.import/Space Sprinkles.ogg-91e1323c81a8446a980b83e8960e157e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

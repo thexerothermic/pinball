@@ -1,7 +1,8 @@
 extends Control
 
 
-
+func _ready():
+	SoundSystem.play_music("Space Sprinkles",".ogg")
 	
 
 func play_click():
