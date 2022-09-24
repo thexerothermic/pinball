@@ -45,4 +45,4 @@ func _integrate_forces(state):
 		reset=false
 		state.transform.origin=get_parent().get_node("Launcher").position
 	else:
-		state.linear_velocity.y+=3
+		state.linear_velocity.y+=8
