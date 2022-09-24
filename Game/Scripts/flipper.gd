@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 export var action:String="left_flipper"
 export var min_deg = 0
 export var max_deg = 90
-export var speed = 900
+export var speed = 1300
 var play_sfx = true
 
 func _process(delta):
@@ -16,3 +16,6 @@ func _process(delta):
 		rotation_degrees-=delta*speed
 		play_sfx = true
 	rotation_degrees=clamp(rotation_degrees,min_deg,max_deg)
+
+func bumped(ball_ref:RigidBody2D):
+	pass

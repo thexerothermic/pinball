@@ -94,7 +94,7 @@ stream = ExtResource( 10 )
 [node name="Flippers" type="Node2D" parent="."]
 
 [node name="left_flipper" parent="Flippers" instance=ExtResource( 5 )]
-position = Vector2( 333, 522 )
+position = Vector2( 332, 523 )
 scale = Vector2( -1, 1 )
 script = ExtResource( 8 )
 min_deg = -90
@@ -107,7 +107,7 @@ volume_db = 1.0
 bus = "SFX"
 
 [node name="right_flipper" parent="Flippers" instance=ExtResource( 5 )]
-position = Vector2( 473, 525 )
+position = Vector2( 473, 526 )
 script = ExtResource( 8 )
 action = "right_flipper"
 
@@ -162,7 +162,7 @@ scale = Vector2( 0.236076, 0.222324 )
 texture = ExtResource( 13 )
 
 [node name="Launcher" type="Position2D" parent="."]
-position = Vector2( 610, 546 )
+position = Vector2( 272, 343 )
 script = ExtResource( 9 )
 
 [node name="ProgressBar" type="ProgressBar" parent="Launcher"]
