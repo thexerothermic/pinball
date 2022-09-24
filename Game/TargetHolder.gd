@@ -8,7 +8,8 @@ func target_check():
 func reset():
 	print("All targets down, resetting")
 	for x in get_node("Targets").get_children():
-		x.show()
+		QuickTimer.create_timer(x,"show",[],1)
+		#x.show()
 	
 
 func all_targets_down():
