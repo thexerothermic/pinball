@@ -14,6 +14,7 @@ func reset_ball(body:Node):
 	body.queue_free()
 	QuickTimer.create_timer(get_parent().get_node("Launcher"),"spawn_ball",[],1)
 #	get_parent().get_node("Launcher").spawn_ball()
+	get_parent().get_node("UI").sub_life()
 
 
 #	print("attempt reset")
