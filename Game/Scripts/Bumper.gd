@@ -15,3 +15,4 @@ func bumped(body:Node):
 func play_bump_animation():
 	get_node("AnimationPlayer").play("bump")
 	$bumper_sound.play()
+	get_parent().get_node("UI").addPoints(50)
