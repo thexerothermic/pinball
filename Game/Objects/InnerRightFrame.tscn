@@ -1,15 +1,21 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 0.25
+absorbent = true
 
 [node name="InnerRightFrame" type="StaticBody2D"]
+physics_material_override = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 587, 507, 583, 471, 549, 236, 556, 233, 594, 507, 614, 505, 577, 229, 585, 229, 632, 572 )
+polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 563, 235, 602, 506, 614, 505, 619, 504, 624, 503, 632, 572 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 587, 507, 583, 471, 549, 236, 556, 233, 594, 507, 614, 505, 577, 229, 585, 229, 632, 572 )
+polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 563, 235, 602, 506, 614, 505, 619, 504, 624, 503, 632, 572 )
 __meta__ = {
 "_edit_lock_": true
 }

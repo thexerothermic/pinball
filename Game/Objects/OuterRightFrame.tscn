@@ -1,15 +1,27 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 0.25
+absorbent = true
 
 [node name="OuterRightFrame" type="StaticBody2D"]
+physics_material_override = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 401, 28, 401, 40, 446, 42, 480, 68, 538, 81, 561, 106, 570, 123, 632, 573, 640, 573, 562, 27 )
+polygon = PoolVector2Array( 634, 573, 625, 518, 619, 477, 607, 395, 595, 316, 582, 232, 568, 144, 564, 127, 559, 112, 552, 95, 541, 79, 529, 67, 519, 60, 502, 52, 473, 46, 436, 43, 401, 41, 401, 28, 563, 27, 640, 573 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PoolVector2Array( 401, 28, 401, 40, 446, 42, 480, 68, 538, 81, 561, 106, 570, 123, 632, 573, 640, 573, 562, 27 )
+polygon = PoolVector2Array( 401, 28, 401, 40, 481, 46, 524, 57, 551, 79, 564, 108, 572, 144, 634, 573, 640, 573, 562, 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 634, 573, 625, 518, 619, 477, 607, 395, 595, 316, 582, 232, 568, 144, 564, 127, 559, 112, 552, 95, 541, 79, 529, 67, 519, 60, 502, 52, 473, 46, 436, 43, 401, 41, 401, 28, 563, 27, 640, 573 )
 __meta__ = {
 "_edit_lock_": true
 }

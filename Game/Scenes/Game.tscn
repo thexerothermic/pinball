@@ -150,7 +150,7 @@ __meta__ = {
 }
 
 [node name="Launcher" type="Position2D" parent="."]
-position = Vector2( 608, 500 )
+position = Vector2( 610, 494 )
 script = ExtResource( 9 )
 
 [node name="ProgressBar" type="ProgressBar" parent="Launcher"]
