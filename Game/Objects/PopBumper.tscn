@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/Scripts/PopBumper.gd" type="Script" id=1]
+[ext_resource path="res://Game/Art/metal_texture.jpg" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 18.0278
@@ -17,6 +18,8 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+antialiased = true
+texture = ExtResource( 2 )
 polygon = PoolVector2Array( 0, -18, 5, -17, 10, -15, 15, -11, 17, -6, 19, 0, 17, 6, 15, 11, 11, 14, 8, 16, 3, 18, -2, 18, -8, 16, -14, 12, -17, 7, -18, 1, -18, -2, -17, -6, -15, -10, -13, -13, -10, -15, -8, -16, -6, -17, -3, -18 )
 __meta__ = {
 "_edit_lock_": true

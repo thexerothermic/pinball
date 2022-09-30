@@ -8,6 +8,7 @@ scale = Vector2( 1.29167, 0.282738 )
 polygon = PoolVector2Array( -27, -39, 123, -40, 123, 1, 45.7215, 1.16, -27, 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2( 5.74, -3.52381 )
 scale = Vector2( 1.28667, 0.261905 )
 color = Color( 0.996078, 0.0117647, 0.0117647, 1 )
