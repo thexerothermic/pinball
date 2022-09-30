@@ -3,13 +3,13 @@
 [node name="OuterRightFrame" type="StaticBody2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 401, 28, 401, 40, 446, 42, 503, 57, 538, 81, 561, 106, 570, 123, 632, 573, 640, 573, 562, 27 )
+polygon = PoolVector2Array( 401, 28, 401, 40, 446, 42, 480, 68, 538, 81, 561, 106, 570, 123, 632, 573, 640, 573, 562, 27 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PoolVector2Array( 401, 28, 401, 40, 446, 42, 503, 57, 538, 81, 561, 106, 570, 123, 632, 573, 640, 573, 562, 27 )
+polygon = PoolVector2Array( 401, 28, 401, 40, 446, 42, 480, 68, 538, 81, 561, 106, 570, 123, 632, 573, 640, 573, 562, 27 )
 __meta__ = {
 "_edit_lock_": true
 }

@@ -27,6 +27,8 @@ func spawn_ball():
 func _process(delta):
 	if(Input.is_action_pressed("launch_ball")&&hold_ball):
 		pressure+=400*delta
+		if(get_node("Pressure").playing==false):
+			get_node("Pressure").play()
 		get_node("ProgressBar").visible=true
 		get_node("ProgressBar").value=-round(clamp(-pressure-200,-1000,-200)/10)
 	if(Input.is_action_just_released("launch_ball")&&hold_ball):
@@ -34,12 +36,17 @@ func _process(delta):
 
 func launch_ball(ball_ref:RigidBody2D):
 	#Called by the player's input to launch the ball
+	if(get_node("Pressure").playing==true):
+			get_node("Pressure").playing=false
+		
 	get_node("ProgressBar").visible=false
 	hold_ball=false
-	ball_ref.reset=false
-	ball_ref.linear_velocity+=Vector2(0,clamp(-pressure-200,-1000,-200))
+	ball_ref.reset=false 
+	ball_ref.linear_velocity+=Vector2(0,clamp(-pressure-200,-1000,-200)*1.5)
 	print("Launch Pressure: "+str(clamp(-pressure-200,-1000,-200)))
 	$launcher_sound.play()
+	QuickTimer.create_timer(SoundSystem,"play_sound",["pressure_release",".wav",0.4],0.6)
+	#SoundSystem.play_sound("pressure_release",".wav",0.5)
 	pressure=0
 
 func ball_entered(_ball_ref):

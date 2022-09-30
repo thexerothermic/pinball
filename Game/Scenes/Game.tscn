@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Game/sfx/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://Game/Objects/InnerRightFrame.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Game/Objects/OuterRightFrame.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Game/Scripts/UI.gd" type="Script" id=18]
+[ext_resource path="res://Framework/Audio/SFX/pressure.wav" type="AudioStream" id=19]
+[ext_resource path="res://Framework/Audio/SFX/pressure_release2.wav" type="AudioStream" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -67,14 +69,14 @@ rotation = 1.56748
 shape = SubResource( 1 )
 
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
-position = Vector2( 483, 427 )
+position = Vector2( 474, 426 )
 rotation = -0.12898
 
 [node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper"]
 stream = ExtResource( 1 )
 
 [node name="Bumper2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 327, 427 )
+position = Vector2( 331, 424 )
 rotation = 0.0962032
 scale = Vector2( -1, 1 )
 
@@ -160,7 +162,9 @@ custom_styles/fg = SubResource( 2 )
 percent_visible = false
 
 [node name="launcher_sound" type="AudioStreamPlayer2D" parent="Launcher"]
-stream = ExtResource( 1 )
+stream = ExtResource( 20 )
+volume_db = 10.0
+bus = "SFX"
 
 [node name="Area2D" type="Area2D" parent="Launcher"]
 __meta__ = {
@@ -168,9 +172,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher/Area2D"]
-position = Vector2( 12, 12 )
+position = Vector2( -3, -1 )
 rotation = -0.0719077
 shape = SubResource( 4 )
+
+[node name="Pressure" type="AudioStreamPlayer2D" parent="Launcher"]
+stream = ExtResource( 19 )
+bus = "SFX"
 
 [node name="Lever" type="StaticBody2D" parent="."]
 position = Vector2( 555, 481 )
@@ -210,14 +218,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LeftTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 269, 342 )
-rotation = -1.59854
-
-[node name="RightTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 547, 340 )
-rotation = 2.17667
-
 [node name="LeftFrame" parent="." instance=ExtResource( 13 )]
 
 [node name="OuterRightFrame" parent="." instance=ExtResource( 17 )]
@@ -225,13 +225,22 @@ rotation = 2.17667
 [node name="InnerRightFrame" parent="." instance=ExtResource( 16 )]
 
 [node name="PopBumper1" parent="." instance=ExtResource( 12 )]
-position = Vector2( 407, 90 )
+position = Vector2( 366, 108 )
 
 [node name="PopBumper2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 444, 151 )
+position = Vector2( 378, 192 )
 
 [node name="PopBumper3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 368, 150 )
+position = Vector2( 302, 143 )
+
+[node name="LeftTargets" parent="." instance=ExtResource( 15 )]
+position = Vector2( 253, 292 )
+rotation = -0.626009
+
+[node name="RightTargets" parent="." instance=ExtResource( 15 )]
+position = Vector2( 455, 79 )
+rotation = -0.243859
+scale = Vector2( 1, 1 )
 
 [node name="UI" type="Polygon2D" parent="."]
 position = Vector2( 3, -1 )
