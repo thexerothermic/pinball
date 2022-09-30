@@ -12,6 +12,8 @@ __meta__ = {
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
+texture_scale = Vector2( 1.5, 1.5 )
+texture_rotation_degrees = -120.0
 polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 249, 492, 218, 491, 219, 464, 223, 457, 256, 370, 234, 315, 253, 286, 261, 273, 244, 261, 229, 251, 225, 236, 227, 218, 229, 197, 238, 178, 249, 147, 264, 127, 281, 96, 310, 73, 361, 50, 401, 40, 401, 28, 240, 28, 238, 36, 163, 574, 306, 574 )
 __meta__ = {
 "_edit_lock_": true
