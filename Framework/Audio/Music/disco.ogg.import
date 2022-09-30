@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/disco.ogg-fea4a01f6cd1c7c68bb314fd48bde9ed.oggstr"
+
+[deps]
+
+source_file="res://Framework/Audio/Music/disco.ogg"
+dest_files=[ "res://.import/disco.ogg-fea4a01f6cd1c7c68bb314fd48bde9ed.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

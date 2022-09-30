@@ -5,7 +5,9 @@ var myTimer:Timer
 var reset = false
 const is_ball = true
 func _ready():
-
+	
+	SoundSystem.play_sound("new_ball")
+	
 	self.connect("body_entered",self,"bumped")
 	myTimer=Timer.new()                #initializes a copy of a class (an instance)
 	add_child(myTimer)                                            #Needs to be added to scene to not be collected as garbage
@@ -36,6 +38,7 @@ func challenge():
 	reset_timer()
 #	self.linear_velocity+=Vector2(rand_range(-1000,1000),rand_range(-1000,1000))            #Applies a random force to our ball
 
+
 func bumped(body:Node):
 	#Called when the ball hits an object. The ball is in charge of creating bumped requests on other objects
 	if(body.has_method("bumped")):
@@ -45,4 +48,4 @@ func _integrate_forces(state):
 		reset=false
 		state.transform.origin=get_parent().get_node("Launcher").position
 	else:
-		state.linear_velocity.y+=8
+		state.linear_velocity.y+=6
