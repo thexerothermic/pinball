@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Framework/GUI/Fonts/Raw/MinimalPixel/MinimalPixel v2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/Nokia Cellphone FC/nokiafc22.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/GothicPixels/GothicPixels.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Game/Scripts/GameOverButton.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.490196 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.215686 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.215686 )
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameOver" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 799.0
+margin_bottom = 98.0
+size_flags_stretch_ratio = 1.5
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="YourScore" type="Label" parent="."]
+margin_top = 109.0
+margin_right = 294.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "Your score"
+
+[node name="Score" type="Label" parent="."]
+margin_left = 305.0
+margin_top = 113.0
+margin_right = 796.0
+margin_bottom = 159.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 1
+
+[node name="HighScore" type="Label" parent="."]
+margin_top = 225.0
+margin_right = 459.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 4 )
+text = "High Scores"
+
+[node name="PlayAgain" type="Button" parent="."]
+margin_left = 459.0
+margin_top = 225.0
+margin_right = 787.0
+margin_bottom = 294.0
+custom_fonts/font = SubResource( 5 )
+text = "Play Again"
+script = ExtResource( 4 )
+
+[connection signal="pressed" from="PlayAgain" to="PlayAgain" method="_on_PlayAgain_pressed"]

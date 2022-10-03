@@ -12,5 +12,7 @@ func sub_life():
 		$lives/live_counter.set_text(str(temp))
 	else:
 		print("final score "+ $score/score_counter.get_text())
+		SceneHandler.quick_load_scene("GameOver")
+		#get_tree().get_root().get_node("GameOver/score").set_text(str($lives/live_counter.get_text()))
 		$score/score_counter.set_text(str(0))
 		$lives/live_counter.set_text(str(3))
