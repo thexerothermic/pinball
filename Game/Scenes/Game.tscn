@@ -256,6 +256,7 @@ margin_bottom = 55.0
 text = "Space Pinball"
 align = 1
 editable = false
+selecting_enabled = false
 
 [node name="score" type="LineEdit" parent="UI"]
 margin_left = 574.0
@@ -264,6 +265,8 @@ margin_right = 772.0
 margin_bottom = 80.0
 text = "Score"
 align = 1
+editable = false
+selecting_enabled = false
 
 [node name="score_counter" type="LineEdit" parent="UI/score"]
 margin_left = 90.0
@@ -272,6 +275,8 @@ margin_right = 198.0
 margin_bottom = 48.32
 text = "0"
 align = 1
+editable = false
+selecting_enabled = false
 
 [node name="lives" type="LineEdit" parent="UI"]
 margin_left = 580.0
@@ -280,6 +285,8 @@ margin_right = 779.0
 margin_bottom = 129.42
 text = "Lives"
 align = 1
+editable = false
+selecting_enabled = false
 
 [node name="live_counter" type="LineEdit" parent="UI/lives"]
 margin_left = 91.0
@@ -288,3 +295,5 @@ margin_right = 199.0
 margin_bottom = 48.424
 text = "3"
 align = 1
+editable = false
+selecting_enabled = false
