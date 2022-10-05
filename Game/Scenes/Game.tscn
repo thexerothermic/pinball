@@ -240,7 +240,6 @@ rotation = -0.626009
 [node name="RightTargets" parent="." instance=ExtResource( 15 )]
 position = Vector2( 455, 79 )
 rotation = -0.243859
-scale = Vector2( 1, 1 )
 
 [node name="UI" type="Polygon2D" parent="."]
 position = Vector2( 3, -1 )
