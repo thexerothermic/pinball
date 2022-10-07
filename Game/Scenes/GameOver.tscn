@@ -3,7 +3,7 @@
 [ext_resource path="res://Framework/GUI/Fonts/Raw/MinimalPixel/MinimalPixel v2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Framework/GUI/Fonts/Raw/Nokia Cellphone FC/nokiafc22.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Framework/GUI/Fonts/Raw/GothicPixels/GothicPixels.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Game/Scripts/GameOverButton.gd" type="Script" id=4]
+[ext_resource path="res://Game/Scripts/GameOverScreen.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -32,6 +32,7 @@ outline_color = Color( 0, 0, 0, 0.215686 )
 font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="GameOver" type="Label" parent="."]
 margin_left = 2.0
@@ -74,6 +75,5 @@ margin_right = 787.0
 margin_bottom = 294.0
 custom_fonts/font = SubResource( 5 )
 text = "Play Again"
-script = ExtResource( 4 )
 
-[connection signal="pressed" from="PlayAgain" to="PlayAgain" method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]

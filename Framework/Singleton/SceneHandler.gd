@@ -15,6 +15,8 @@ var current_scene
 var res_loader=null
 var poll_cd=0.2
 var scene_instance
+var score = "0"
+
 func _ready():
 	current_scene=get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1)
 
@@ -90,3 +92,8 @@ func smooth_load_scene2(scene_name):
 	set_process(true)
 func process_stuff():
 	set_process(true)
+	
+func set_score(var temp):
+	score = temp
+func get_score() -> String:
+	return score

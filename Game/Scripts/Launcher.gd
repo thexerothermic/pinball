@@ -46,7 +46,6 @@ func launch_ball(ball_ref:RigidBody2D):
 	print("Launch Pressure: "+str(clamp(-pressure-200,-1000,-200)))
 	$launcher_sound.play()
 	QuickTimer.create_timer(SoundSystem,"play_sound",["pressure_release",".wav",0.4],0.6)
-	#SoundSystem.play_sound("pressure_release",".wav",0.5)
 	pressure=0
 
 func ball_entered(_ball_ref):
