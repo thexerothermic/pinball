@@ -5,6 +5,7 @@ extends StaticBody2D
 
 #func ball_entered(ball_ref:RigidBody2D):
 var hit_effect_ref=preload("res://Game/Objects/TargetHitEffect.tscn")
+const points = 100 #how many points this target is worth
 
 func create_hit_effect():
 	var x=hit_effect_ref.instance()
@@ -34,6 +35,9 @@ func bumped(ball_ref:RigidBody2D):
 		get_node("CollisionShape2D").set_deferred("disabled",true)
 		
 		get_parent().get_parent().target_check()
-
-
-		get_tree().get_root().get_node("Game").get_node("UI").addPoints(75)
+		
+		get_tree().get_root().get_node("Game").get_node("UI").addPoints(points)
+		
+#returns how many points this target is worth for upgrade calculation
+func get_points():
+	return points
