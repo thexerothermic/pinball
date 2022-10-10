@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Game/sfx/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -20,6 +20,11 @@
 [ext_resource path="res://Game/Scripts/UI.gd" type="Script" id=18]
 [ext_resource path="res://Framework/Audio/SFX/pressure.wav" type="AudioStream" id=19]
 [ext_resource path="res://Framework/Audio/SFX/pressure_release2.wav" type="AudioStream" id=20]
+[ext_resource path="res://Game/Art/NewTable/Bot_Rings.PNG" type="Texture" id=21]
+[ext_resource path="res://Game/Art/NewTable/Top Rings.PNG" type="Texture" id=22]
+[ext_resource path="res://Game/Art/NewTable/Top Plastic.PNG" type="Texture" id=23]
+[ext_resource path="res://Game/Art/NewTable/Bot_Launcher.PNG" type="Texture" id=24]
+[ext_resource path="res://Game/Art/NewTable/Top Launcher.PNG" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -35,6 +40,23 @@ extents = Vector2( 15.8641, 3.366 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Launcher_Graphic" type="Sprite" parent="."]
+position = Vector2( 399, 301 )
+z_index = 2
+texture = ExtResource( 24 )
+
+[node name="BotRings" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 21 )
+
+[node name="TopLauncher" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 25 )
+
+[node name="TopPlastic" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 23 )
+
+[node name="TopRings" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 22 )
 
 [node name="Walls" type="Sprite" parent="."]
 position = Vector2( 400, 293 )
@@ -238,8 +260,8 @@ position = Vector2( 253, 292 )
 rotation = -0.626009
 
 [node name="RightTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 455, 79 )
-rotation = -0.243859
+position = Vector2( 429, 130 )
+rotation = 0.374518
 
 [node name="UI" type="Polygon2D" parent="."]
 position = Vector2( 3, -1 )
