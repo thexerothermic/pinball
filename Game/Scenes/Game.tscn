@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://Game/Art/NewTable/Top Launcher.PNG" type="Texture" id=25]
 [ext_resource path="res://Game/Objects/ArrowCluster.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Game/Objects/Arrow.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Game/Art/NewTable/GutterWall.png" type="Texture" id=28]
+[ext_resource path="res://Framework/Audio/SFX/bump2.wav" type="AudioStream" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -44,7 +46,7 @@ extents = Vector2( 15.8641, 3.366 )
 script = ExtResource( 2 )
 
 [node name="Launcher_Graphic" type="Sprite" parent="."]
-position = Vector2( 399, 301 )
+position = Vector2( 398, 298 )
 z_index = 2
 texture = ExtResource( 24 )
 
@@ -100,19 +102,19 @@ rotation = 1.56748
 shape = SubResource( 1 )
 
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
-position = Vector2( 474, 426 )
-rotation = -0.12898
+position = Vector2( 492, 418 )
+rotation = -0.0182214
 
 [node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper"]
-stream = ExtResource( 1 )
+stream = ExtResource( 29 )
 
 [node name="Bumper2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 331, 424 )
-rotation = 0.0962032
+position = Vector2( 317, 419 )
+rotation = -0.0109179
 scale = Vector2( -1, 1 )
 
 [node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper2"]
-stream = ExtResource( 1 )
+stream = ExtResource( 29 )
 
 [node name="BallChute" parent="." instance=ExtResource( 6 )]
 position = Vector2( 337, 580 )
@@ -124,7 +126,7 @@ stream = ExtResource( 10 )
 [node name="Flippers" type="Node2D" parent="."]
 
 [node name="left_flipper" parent="Flippers" instance=ExtResource( 5 )]
-position = Vector2( 354, 520 )
+position = Vector2( 349, 515 )
 scale = Vector2( -1, 1 )
 script = ExtResource( 8 )
 min_deg = -90
@@ -137,7 +139,7 @@ volume_db = 1.0
 bus = "SFX"
 
 [node name="right_flipper" parent="Flippers" instance=ExtResource( 5 )]
-position = Vector2( 459, 520 )
+position = Vector2( 464, 515 )
 script = ExtResource( 8 )
 action = "right_flipper"
 
@@ -149,12 +151,13 @@ bus = "SFX"
 position = Vector2( 285, 471 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftGutter"]
-polygon = PoolVector2Array( 63, 33, -9, -23, 9, -94, -1, -98, -24, -22, -1, -3, 1.59726, -1.1583, 54, 36 )
+polygon = PoolVector2Array( 55, 30, -20, -24, -6, -110, -10, -110, -26, -22, -1, -3, 1.59726, -1.1583, 53, 33 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="LeftGutter"]
+visible = false
 position = Vector2( 21, -30 )
 scale = Vector2( 0.113469, 0.10873 )
 texture = ExtResource( 14 )
@@ -162,23 +165,34 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="GutterWallLeft" type="Sprite" parent="LeftGutter"]
+position = Vector2( 128, -173 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 28 )
+
 [node name="RightGutter" type="StaticBody2D" parent="."]
 position = Vector2( 518, 471 )
 constant_linear_velocity = Vector2( 100, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightGutter"]
-polygon = PoolVector2Array( -60, 35, 14, -17, -5, -97, 5, -106, 29, -14, -51, 40 )
+polygon = PoolVector2Array( -48, 29, 27, -24, 12, -109, 17, -110, 34, -22, -45, 34 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="RightGutter"]
+visible = false
 position = Vector2( -5.99998, 34.9375 )
 scale = Vector2( 0.245161, 0.221109 )
 texture = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="GutterWallRight" type="Sprite" parent="RightGutter"]
+position = Vector2( -120, -173 )
+texture = ExtResource( 28 )
 
 [node name="Launcher" type="Position2D" parent="."]
 position = Vector2( 610, 494 )
@@ -390,5 +404,5 @@ position = Vector2( -78.9544, -113.416 )
 rotation = -1.34699
 
 [node name="Arrow10" parent="ArrowCluster3" instance=ExtResource( 27 )]
-position = Vector2( -87.0159, -113.306 )
+position = Vector2( -84.5863, -117.06 )
 rotation = -1.34699

@@ -10,3 +10,5 @@ func bumped(body:Node):
 		var randomYVelocity = rng.randf_range(300, 400)
 		body.linear_velocity+=((body.global_position-self.global_position)+Vector2(randomXVelocity,randomYVelocity)).normalized()*900
 		get_parent().get_node("UI").addPoints(100)
+		
+		SoundSystem.play_sound("bump1")

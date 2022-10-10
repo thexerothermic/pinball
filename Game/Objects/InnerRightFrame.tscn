@@ -18,7 +18,7 @@ __meta__ = {
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
-polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 563, 235, 602, 506, 614, 505, 619, 504, 624, 503, 632, 572 )
+polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 594, 507, 596, 507, 599, 507, 602, 506, 614, 505, 619, 504, 624, 503, 632, 572 )
 __meta__ = {
 "_edit_lock_": true
 }
