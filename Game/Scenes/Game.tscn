@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -20,6 +20,13 @@
 [ext_resource path="res://Game/Scripts/UI.gd" type="Script" id=18]
 [ext_resource path="res://Framework/Audio/SFX/pressure.wav" type="AudioStream" id=19]
 [ext_resource path="res://Framework/Audio/SFX/pressure_release2.wav" type="AudioStream" id=20]
+[ext_resource path="res://Game/Art/NewTable/Bot_Rings.PNG" type="Texture" id=21]
+[ext_resource path="res://Game/Art/NewTable/Top Rings.PNG" type="Texture" id=22]
+[ext_resource path="res://Game/Art/NewTable/Top Plastic.PNG" type="Texture" id=23]
+[ext_resource path="res://Game/Art/NewTable/Bot_Launcher.PNG" type="Texture" id=24]
+[ext_resource path="res://Game/Art/NewTable/Top Launcher.PNG" type="Texture" id=25]
+[ext_resource path="res://Game/Objects/ArrowCluster.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Game/Objects/Arrow.tscn" type="PackedScene" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -36,7 +43,31 @@ extents = Vector2( 15.8641, 3.366 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Launcher_Graphic" type="Sprite" parent="."]
+position = Vector2( 399, 301 )
+z_index = 2
+texture = ExtResource( 24 )
+
+[node name="BotRings" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 21 )
+
+[node name="TopLauncher" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 25 )
+
+[node name="TopPlastic" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 23 )
+
+[node name="TopRings" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Launcher_Graphic"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Launcher_Graphic/StaticBody2D"]
+position = Vector2( 148, -153 )
+polygon = PoolVector2Array( -1, 1, -4, -12, -10, -28, -22, -41, -39, -57, -56, -66, -70, -71, -81, -73, -82, -78, -69, -76, -54, -70, -35, -61, -18, -44, -5, -28, 0, -12, 2, 0 )
+
 [node name="Walls" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 400, 293 )
 texture = ExtResource( 3 )
 
@@ -238,8 +269,8 @@ position = Vector2( 253, 292 )
 rotation = -0.626009
 
 [node name="RightTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 455, 79 )
-rotation = -0.243859
+position = Vector2( 358, 65 )
+rotation = -0.101839
 
 [node name="UI" type="Polygon2D" parent="."]
 position = Vector2( 3, -1 )
@@ -297,3 +328,67 @@ text = "3"
 align = 1
 editable = false
 selecting_enabled = false
+
+[node name="ArrowCluster" parent="." instance=ExtResource( 26 )]
+position = Vector2( 34, 203 )
+reset_cd = 0.15
+
+[node name="Arrow" parent="ArrowCluster" instance=ExtResource( 27 )]
+position = Vector2( 564, 208 )
+
+[node name="Arrow2" parent="ArrowCluster" instance=ExtResource( 27 )]
+position = Vector2( 563, 201 )
+
+[node name="Arrow3" parent="ArrowCluster" instance=ExtResource( 27 )]
+position = Vector2( 562, 193 )
+
+[node name="Arrow4" parent="ArrowCluster" instance=ExtResource( 27 )]
+position = Vector2( 549, 103 )
+
+[node name="Arrow5" parent="ArrowCluster" instance=ExtResource( 27 )]
+position = Vector2( 548, 96 )
+
+[node name="Arrow6" parent="ArrowCluster" instance=ExtResource( 27 )]
+position = Vector2( 547, 88 )
+
+[node name="ArrowCluster3" parent="." instance=ExtResource( 26 )]
+position = Vector2( 548, 167 )
+rotation = -0.110694
+reset_cd = 0.1
+
+[node name="Arrow" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( 14.6542, -2.59128 )
+
+[node name="Arrow2" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( 13.6542, -9.59131 )
+
+[node name="Arrow3" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( 12.6542, -17.5913 )
+
+[node name="Arrow4" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -7.46045, -79.291 )
+rotation = -0.650184
+
+[node name="Arrow5" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -12.4937, -84.2575 )
+rotation = -0.650184
+
+[node name="Arrow6" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -18.1323, -90.02 )
+rotation = -0.650184
+
+[node name="Arrow7" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -42.6227, -105.353 )
+rotation = -1.19827
+
+[node name="Arrow8" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -50.4633, -107.231 )
+rotation = -1.19827
+
+[node name="Arrow9" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -78.9544, -113.416 )
+rotation = -1.34699
+
+[node name="Arrow10" parent="ArrowCluster3" instance=ExtResource( 27 )]
+position = Vector2( -87.0159, -113.306 )
+rotation = -1.34699
