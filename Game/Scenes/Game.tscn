@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Game/Art/NewTable/GutterWall.png" type="Texture" id=28]
 [ext_resource path="res://Framework/Audio/SFX/bump2.wav" type="AudioStream" id=29]
 [ext_resource path="res://Game/Objects/GutterLauncher.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Game/Art/background.png" type="Texture" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -73,6 +74,9 @@ polygon = PoolVector2Array( -1, 1, -4, -12, -10, -28, -22, -41, -39, -57, -56, -
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 400, 293 )
 texture = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="Walls"]
+texture = ExtResource( 31 )
 
 [node name="Wall" type="StaticBody2D" parent="Walls"]
 position = Vector2( 281, -187 )
