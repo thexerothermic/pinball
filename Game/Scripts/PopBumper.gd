@@ -1,6 +1,10 @@
 extends RigidBody2D
 onready var _animated_sprite = $AnimatedSprite
 const points = 50
+
+
+var ballhit_ref=preload("res://Game/Objects/BallHitEffect.tscn")
+
 func bumped(body:Node):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -17,6 +21,11 @@ func bumped(body:Node):
 
 		_animated_sprite.play("activate")
 		SoundSystem.play_sound("pop_bumper_hit")
+		
+		
+		var hit_effect=ballhit_ref.instance()
+		hit_effect.global_position=body.global_position
+		get_parent().add_child(hit_effect)
 #returns how many points this target is worth for upgrade calculation
 func get_points():
 	return points

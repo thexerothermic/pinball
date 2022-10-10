@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Game/Objects/Arrow.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Game/Art/NewTable/GutterWall.png" type="Texture" id=28]
 [ext_resource path="res://Framework/Audio/SFX/bump2.wav" type="AudioStream" id=29]
+[ext_resource path="res://Game/Objects/GutterLauncher.tscn" type="PackedScene" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 1000 )
@@ -100,6 +101,20 @@ rotation = 1.56748
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
 shape = SubResource( 1 )
+
+[node name="GutterLauncherRight" parent="." instance=ExtResource( 30 )]
+position = Vector2( 574, 491 )
+rotation = -0.041234
+scale = Vector2( 0.08, 0.14 )
+animation = "default"
+frame = 0
+
+[node name="GutterLauncherLeft" parent="." instance=ExtResource( 30 )]
+position = Vector2( 233, 475 )
+rotation = 0.152588
+scale = Vector2( 0.08, 0.14 )
+animation = "default"
+frame = 0
 
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 492, 418 )
@@ -225,11 +240,11 @@ shape = SubResource( 4 )
 stream = ExtResource( 19 )
 bus = "SFX"
 
-[node name="Lever" type="StaticBody2D" parent="."]
+[node name="LeverLeft" type="StaticBody2D" parent="."]
 position = Vector2( 555, 481 )
 rotation = -0.232734
 
-[node name="Line2D" type="Line2D" parent="Lever"]
+[node name="Line2D" type="Line2D" parent="LeverLeft"]
 points = PoolVector2Array( 0, 0, 30, 0 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
@@ -237,18 +252,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverLeft"]
 position = Vector2( 14.9416, 0.526184 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Lever2" type="StaticBody2D" parent="."]
+[node name="LeverRight" type="StaticBody2D" parent="."]
 position = Vector2( 223, 461 )
 rotation = 0.466356
 
-[node name="Line2D" type="Line2D" parent="Lever2"]
+[node name="Line2D" type="Line2D" parent="LeverRight"]
 points = PoolVector2Array( 0, 0, 30, 0 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
@@ -256,7 +271,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverRight"]
 position = Vector2( 14.9416, 0.526184 )
 shape = SubResource( 3 )
 __meta__ = {
