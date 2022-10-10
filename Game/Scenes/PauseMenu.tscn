@@ -37,9 +37,7 @@ anchor_top = 0.27
 anchor_right = 0.94
 anchor_bottom = 0.47
 margin_left = -0.0500002
-margin_top = -1.90735e-06
 margin_right = -1.52588e-05
-margin_bottom = -3.8147e-06
 
 [node name="Resume" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.5
@@ -61,7 +59,6 @@ function_name_on_click = "options_click"
 [node name="Quit" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_top = 1.15
 anchor_bottom = 2.15
-margin_top = -1.90735e-06
 margin_right = 0.0
 margin_bottom = 0.0
 text = "Quit to Main Menu"

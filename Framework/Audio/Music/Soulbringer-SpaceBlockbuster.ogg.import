@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Soulbringer-SpaceBlockbuster.ogg-0b1a264d92f17527ea9147182aab6ce4.oggstr"
+
+[deps]
+
+source_file="res://Framework/Audio/Music/Soulbringer-SpaceBlockbuster.ogg"
+dest_files=[ "res://.import/Soulbringer-SpaceBlockbuster.ogg-0b1a264d92f17527ea9147182aab6ce4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
