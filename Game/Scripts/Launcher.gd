@@ -23,6 +23,12 @@ func spawn_ball():
 	x.reset=true
 	current_ball=x
 	pressure=0
+	
+	get_parent().get_node("GutterLauncherLeft").disable_lever()
+	get_parent().get_node("GutterLauncherRight").disable_lever()
+	
+	
+	
 
 func _process(delta):
 	if(Input.is_action_pressed("launch_ball")&&hold_ball):
