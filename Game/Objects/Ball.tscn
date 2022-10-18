@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Objects/Trail2D.gd" type="Script" id=1]
 [ext_resource path="res://Game/Objects/Ball.gd" type="Script" id=2]
+[ext_resource path="res://Game/Objects/SpawnEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Art/ball.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=2]
@@ -43,3 +44,5 @@ gradient = SubResource( 4 )
 joint_mode = 2
 script = ExtResource( 1 )
 length = 20
+
+[node name="AnimatedSprite" parent="." instance=ExtResource( 3 )]

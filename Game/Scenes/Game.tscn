@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -12,11 +12,10 @@
 [ext_resource path="res://Framework/Audio/SFX/ball_crash.wav" type="AudioStream" id=10]
 [ext_resource path="res://Game/Art/rightgutter.png" type="Texture" id=11]
 [ext_resource path="res://Game/Objects/PopBumper.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Game/Objects/LeftFrame.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game/Art/LeftRamp.png" type="Texture" id=13]
 [ext_resource path="res://Game/Art/leftgutter.png" type="Texture" id=14]
 [ext_resource path="res://Game/Objects/Target.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Game/Objects/InnerRightFrame.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Game/Objects/OuterRightFrame.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Game/Objects/Pusher.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Game/Scripts/UI.gd" type="Script" id=18]
 [ext_resource path="res://Framework/Audio/SFX/pressure.wav" type="AudioStream" id=19]
 [ext_resource path="res://Framework/Audio/SFX/pressure_release2.wav" type="AudioStream" id=20]
@@ -31,24 +30,71 @@
 [ext_resource path="res://Framework/Audio/SFX/bump2.wav" type="AudioStream" id=29]
 [ext_resource path="res://Game/Objects/GutterLauncher.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Game/Art/background.png" type="Texture" id=31]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 100, 1000 )
+[ext_resource path="res://Game/Art/NewWalls.png" type="Texture" id=32]
+[ext_resource path="res://Game/Art/TopCap.png" type="Texture" id=33]
+[ext_resource path="res://Game/Art/metal_texture.jpg" type="Texture" id=34]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.815686, 0.984314, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 15, 15 )
+extents = Vector2( 12.5924, 15 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100, 1000 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 15.8641, 3.366 )
 
+[sub_resource type="PhysicsMaterial" id=5]
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id=6]
+friction = 0.0
+bounce = 0.25
+absorbent = true
+
+[sub_resource type="CircleShape2D" id=7]
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Launcher" type="Position2D" parent="."]
+position = Vector2( 614, 483 )
+z_index = 100
+script = ExtResource( 9 )
+
+[node name="ProgressBar" type="ProgressBar" parent="Launcher"]
+margin_left = 2.0
+margin_top = 63.0
+margin_right = 39.0
+margin_bottom = 77.0
+rect_rotation = -96.9043
+custom_styles/fg = SubResource( 2 )
+percent_visible = false
+
+[node name="launcher_sound" type="AudioStreamPlayer2D" parent="Launcher"]
+stream = ExtResource( 20 )
+volume_db = 10.0
+bus = "SFX"
+
+[node name="Area2D" type="Area2D" parent="Launcher"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher/Area2D"]
+position = Vector2( 5.38171, 0.648193 )
+rotation = -0.14664
+scale = Vector2( 1, 1 )
+shape = SubResource( 4 )
+
+[node name="Pressure" type="AudioStreamPlayer2D" parent="Launcher"]
+stream = ExtResource( 19 )
+bus = "SFX"
+
 [node name="Launcher_Graphic" type="Sprite" parent="."]
-position = Vector2( 398, 298 )
+position = Vector2( 405, 298 )
 z_index = 2
 texture = ExtResource( 24 )
 
@@ -56,18 +102,22 @@ texture = ExtResource( 24 )
 texture = ExtResource( 21 )
 
 [node name="TopLauncher" type="Sprite" parent="Launcher_Graphic"]
+position = Vector2( 3, 3.5 )
 texture = ExtResource( 25 )
 
 [node name="TopPlastic" type="Sprite" parent="Launcher_Graphic"]
+position = Vector2( 5, 5 )
 texture = ExtResource( 23 )
 
 [node name="TopRings" type="Sprite" parent="Launcher_Graphic"]
+position = Vector2( 5, 5 )
 texture = ExtResource( 22 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Launcher_Graphic"]
+[node name="TopLauncherCollider" type="StaticBody2D" parent="Launcher_Graphic"]
+position = Vector2( -4, -1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Launcher_Graphic/StaticBody2D"]
-position = Vector2( 148, -153 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Launcher_Graphic/TopLauncherCollider"]
+position = Vector2( 148, -145 )
 polygon = PoolVector2Array( -1, 1, -4, -12, -10, -28, -22, -41, -39, -57, -56, -66, -70, -71, -81, -73, -82, -78, -69, -76, -54, -70, -35, -61, -18, -44, -5, -28, 0, -12, 2, 0 )
 
 [node name="Walls" type="Sprite" parent="."]
@@ -107,11 +157,33 @@ rotation = 1.56748
 shape = SubResource( 1 )
 
 [node name="GutterLauncherRight" parent="." instance=ExtResource( 30 )]
-position = Vector2( 574, 491 )
-rotation = -0.041234
-scale = Vector2( 0.08, 0.14 )
+position = Vector2( 574, 485 )
+rotation = -0.00987466
+scale = Vector2( 0.1, 0.14 )
+z_index = 2
 animation = "default"
 frame = 0
+
+[node name="Lever" type="StaticBody2D" parent="GutterLauncherRight"]
+position = Vector2( -163.05, -17.0894 )
+rotation = -0.160482
+scale = Vector2( 9.87964, 7.9801 )
+
+[node name="Line2D" type="Line2D" parent="GutterLauncherRight/Lever"]
+points = PoolVector2Array( 0, 0, 30, 0 )
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GutterLauncherRight/Lever"]
+position = Vector2( 14.9416, 0.526184 )
+shape = SubResource( 3 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="GutterLauncherLeft" parent="." instance=ExtResource( 30 )]
 position = Vector2( 233, 475 )
@@ -119,6 +191,27 @@ rotation = 0.152588
 scale = Vector2( 0.08, 0.14 )
 animation = "default"
 frame = 0
+
+[node name="Lever" type="StaticBody2D" parent="GutterLauncherLeft"]
+position = Vector2( -166.911, -57.1089 )
+rotation = 0.067182
+scale = Vector2( 12.0108, 7.7548 )
+
+[node name="Line2D" type="Line2D" parent="GutterLauncherLeft/Lever"]
+points = PoolVector2Array( 0, 0, 30, 0 )
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GutterLauncherLeft/Lever"]
+position = Vector2( 14.9416, 0.526184 )
+shape = SubResource( 3 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 492, 418 )
@@ -167,7 +260,7 @@ stream = ExtResource( 1 )
 bus = "SFX"
 
 [node name="LeftGutter" type="StaticBody2D" parent="."]
-position = Vector2( 285, 471 )
+position = Vector2( 284, 473 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftGutter"]
 polygon = PoolVector2Array( 55, 30, -20, -24, -6, -110, -10, -110, -26, -22, -1, -3, 1.59726, -1.1583, 53, 33 )
@@ -213,83 +306,53 @@ __meta__ = {
 position = Vector2( -120, -173 )
 texture = ExtResource( 28 )
 
-[node name="Launcher" type="Position2D" parent="."]
-position = Vector2( 610, 494 )
-script = ExtResource( 9 )
+[node name="LeftFrame" type="StaticBody2D" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="Launcher"]
-margin_left = 30.0
-margin_top = -8.0
-margin_right = 67.0
-margin_bottom = 6.0
-custom_styles/fg = SubResource( 2 )
-percent_visible = false
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftFrame"]
+polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 216, 464, 190, 430, 181, 478, 184, 456, 189, 428, 191, 404, 199, 345, 210, 269, 226, 163, 238, 122, 248, 100, 262, 82, 281, 66, 303, 57, 337, 47, 377, 45, 392, 39, 405, 37, 404, 24, 240, 28, 238, 36, 163, 574, 306, 574 )
 
-[node name="launcher_sound" type="AudioStreamPlayer2D" parent="Launcher"]
-stream = ExtResource( 20 )
-volume_db = 10.0
-bus = "SFX"
+[node name="Polygon2D" type="Polygon2D" parent="LeftFrame"]
+texture = ExtResource( 34 )
+texture_scale = Vector2( 1.5, 1.5 )
+texture_rotation_degrees = -120.0
+polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 216, 464, 190, 430, 181, 478, 184, 456, 189, 428, 191, 404, 199, 345, 210, 269, 226, 163, 238, 122, 248, 100, 262, 82, 281, 66, 303, 57, 337, 47, 377, 45, 392, 39, 405, 37, 404, 24, 240, 28, 238, 36, 163, 574, 306, 574 )
 
-[node name="Area2D" type="Area2D" parent="Launcher"]
+[node name="OuterRightFrame" type="StaticBody2D" parent="."]
+position = Vector2( 0, -2 )
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterRightFrame"]
+polygon = PoolVector2Array( 648, 581, 640, 526, 632, 479, 621, 398, 613, 324, 602, 245, 592, 168, 586, 143, 581, 128, 573, 107, 564, 90, 550, 75, 535, 65, 518, 56, 492, 50, 443, 48, 436, 43, 401, 41, 401, 28, 578, 28, 598, 168, 656, 583 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="OuterRightFrame"]
+visible = false
+texture = ExtResource( 34 )
+texture_scale = Vector2( 1.5, 1.5 )
+texture_rotation_degrees = -33.0
+polygon = PoolVector2Array( 634, 573, 625, 518, 619, 477, 607, 395, 595, 316, 582, 232, 573, 165, 566, 127, 561, 111, 554, 94, 543, 78, 529, 67, 519, 60, 502, 52, 473, 46, 436, 43, 401, 41, 401, 28, 563, 27, 640, 573 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher/Area2D"]
-position = Vector2( -3, -1 )
-rotation = -0.0719077
-shape = SubResource( 4 )
+[node name="InnerRightFrame" type="StaticBody2D" parent="."]
+position = Vector2( 0, -2 )
+physics_material_override = SubResource( 6 )
 
-[node name="Pressure" type="AudioStreamPlayer2D" parent="Launcher"]
-stream = ExtResource( 19 )
-bus = "SFX"
-
-[node name="LeverLeft" type="StaticBody2D" parent="."]
-position = Vector2( 555, 481 )
-rotation = -0.232734
-
-[node name="Line2D" type="Line2D" parent="LeverLeft"]
-points = PoolVector2Array( 0, 0, 30, 0 )
-width = 5.0
-default_color = Color( 1, 1, 1, 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InnerRightFrame"]
+polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 566, 234, 609, 504, 614, 505, 619, 504, 636, 502, 647, 575 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverLeft"]
-position = Vector2( 14.9416, 0.526184 )
-shape = SubResource( 3 )
+[node name="Polygon2D" type="Polygon2D" parent="InnerRightFrame"]
+texture = ExtResource( 34 )
+polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 560, 235, 599, 505, 614, 505, 619, 504, 636, 502, 647, 575 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="LeverRight" type="StaticBody2D" parent="."]
-position = Vector2( 223, 461 )
-rotation = 0.466356
-
-[node name="Line2D" type="Line2D" parent="LeverRight"]
-points = PoolVector2Array( 0, 0, 30, 0 )
-width = 5.0
-default_color = Color( 1, 1, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverRight"]
-position = Vector2( 14.9416, 0.526184 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="LeftFrame" parent="." instance=ExtResource( 13 )]
-
-[node name="OuterRightFrame" parent="." instance=ExtResource( 17 )]
-
-[node name="InnerRightFrame" parent="." instance=ExtResource( 16 )]
 
 [node name="PopBumper1" parent="." instance=ExtResource( 12 )]
-position = Vector2( 366, 108 )
+position = Vector2( 412, 61 )
 
 [node name="PopBumper2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 378, 192 )
@@ -298,12 +361,12 @@ position = Vector2( 378, 192 )
 position = Vector2( 302, 143 )
 
 [node name="LeftTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 253, 292 )
-rotation = -0.626009
+position = Vector2( 230, 229 )
+rotation = -1.10131
 
 [node name="RightTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 358, 65 )
-rotation = -0.101839
+position = Vector2( 501, 103 )
+rotation = 0.690848
 
 [node name="UI" type="Polygon2D" parent="."]
 position = Vector2( 3, -1 )
@@ -363,7 +426,7 @@ editable = false
 selecting_enabled = false
 
 [node name="ArrowCluster" parent="." instance=ExtResource( 26 )]
-position = Vector2( 34, 203 )
+position = Vector2( 40, 201 )
 reset_cd = 0.15
 
 [node name="Arrow" parent="ArrowCluster" instance=ExtResource( 27 )]
@@ -384,8 +447,19 @@ position = Vector2( 548, 96 )
 [node name="Arrow6" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 547, 88 )
 
+[node name="NewWalls" type="Sprite" parent="."]
+position = Vector2( 409, 303 )
+z_index = 1
+texture = ExtResource( 32 )
+
+[node name="TopCap" type="Sprite" parent="NewWalls"]
+texture = ExtResource( 33 )
+
+[node name="LeftRamp" type="Sprite" parent="NewWalls"]
+texture = ExtResource( 13 )
+
 [node name="ArrowCluster3" parent="." instance=ExtResource( 26 )]
-position = Vector2( 548, 167 )
+position = Vector2( 560, 167 )
 rotation = -0.110694
 reset_cd = 0.1
 
@@ -425,3 +499,31 @@ rotation = -1.34699
 [node name="Arrow10" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -84.5863, -117.06 )
 rotation = -1.34699
+
+[node name="Pusher" parent="." instance=ExtResource( 16 )]
+position = Vector2( 569, 139 )
+rotation = -0.187655
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher"]
+shape = SubResource( 7 )
+
+[node name="Pusher2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 560, 109 )
+rotation = -0.5787
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher2"]
+shape = SubResource( 7 )
+
+[node name="Pusher3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 536, 83 )
+rotation = -0.890584
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher3"]
+shape = SubResource( 7 )
+
+[node name="Pusher4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 501, 65 )
+rotation = -1.20501
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher4"]
+shape = SubResource( 7 )

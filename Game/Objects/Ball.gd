@@ -49,6 +49,8 @@ func bumped(body:Node):
 		ball_points += body.get_points()
 		print("current ball has " + str(ball_points) + " points")
 func _integrate_forces(state):
+	if(Input.is_action_pressed("place_ball")):
+		state.transform.origin=get_viewport().get_mouse_position()
 	if(reset):
 		reset=false
 		state.transform.origin=get_parent().get_node("Launcher").position

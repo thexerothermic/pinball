@@ -18,7 +18,7 @@ func spawn_ball():
 	#Called by the game to spawn a new ball into the launching chamber
 	hold_ball=true
 	var x=ball_res.instance()
-	x.transform.origin=self.global_position
+	x.global_position=self.global_position
 	get_parent().add_child(x)
 	x.reset=true
 	current_ball=x
