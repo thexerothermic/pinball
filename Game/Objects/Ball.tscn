@@ -5,9 +5,9 @@
 [ext_resource path="res://Game/Objects/SpawnEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Art/ball.png" type="Texture" id=4]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=5]
 friction = 0.0
-bounce = 0.35
+bounce = 0.21
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -19,13 +19,8 @@ offsets = PoolRealArray( 0.517134, 1 )
 colors = PoolColorArray( 1, 1, 1, 0.0392157, 1, 1, 1, 0.588235 )
 
 [node name="Ball" type="RigidBody2D"]
-mode = 2
-mass = 1.02041
-physics_material_override = SubResource( 2 )
-custom_integrator = true
-continuous_cd = 1
-contacts_reported = 4
-contact_monitor = true
+physics_material_override = SubResource( 5 )
+linear_damp = 1.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -11,7 +11,9 @@ func bumped(body:Node):
 			return
 		if(posit.distance_to(get_node("Other2").global_position)<posit.distance_to(get_node("Band").global_position)):
 			return
-		body.linear_velocity+=((body.global_position-self.global_position)+Vector2(0,0.1)).normalized()*300
+		body.linear_velocity+=((body.global_position-self.global_position)+Vector2(0,-35)).normalized()*420
+		if(body.linear_velocity.length()<550):
+			body.linear_velocity*=(550/body.linear_velocity.length())
 		play_bump_animation()
 
 func play_bump_animation():

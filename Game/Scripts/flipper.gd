@@ -18,4 +18,5 @@ func _process(delta):
 	rotation_degrees=clamp(rotation_degrees,min_deg,max_deg)
 
 func bumped(ball_ref:RigidBody2D):
+	#print("bumped!")
 	pass

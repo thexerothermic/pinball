@@ -48,11 +48,25 @@ func bumped(body:Node):
 	if(body.has_method("get_points")):
 		ball_points += body.get_points()
 		print("current ball has " + str(ball_points) + " points")
+var max_vel=2000
 func _integrate_forces(state):
+	
+	if(state.linear_velocity.length()>max_vel):
+		state.linear_velocity*=(max_vel/state.linear_velocity.length())
+	#	maxa=state.linear_velocity.length()
+#		print("Max "+(str(maxa)))
+	var con=state.get_contact_count()
+	if(con>0):
+		if(state.get_contact_collider_object(0).name=="left_flipper"||state.get_contact_collider_object(0).name=="right_flipper"):
+			print(state.get_contact_collider_velocity_at_position(0))
+		#	state.linear_velocity-=state.get_contact_collider_velocity_at_position(0)
+			state.linear_velocity+=state.get_contact_collider_velocity_at_position(0)*Vector2(0.3,0.5)
+			state.integrate_forces()
 	if(Input.is_action_pressed("place_ball")):
+		state.linear_velocity=Vector2(0,0)
 		state.transform.origin=get_viewport().get_mouse_position()
 	if(reset):
 		reset=false
 		state.transform.origin=get_parent().get_node("Launcher").position
 	else:
-		state.linear_velocity.y+=6
+		state.linear_velocity.y+=3.5
