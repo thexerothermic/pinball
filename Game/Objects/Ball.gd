@@ -60,8 +60,9 @@ func _integrate_forces(state):
 		if(state.get_contact_collider_object(0).name=="left_flipper"||state.get_contact_collider_object(0).name=="right_flipper"):
 			print(state.get_contact_collider_velocity_at_position(0))
 		#	state.linear_velocity-=state.get_contact_collider_velocity_at_position(0)
-			state.linear_velocity+=state.get_contact_collider_velocity_at_position(0)*Vector2(0.3,0.5)
-			state.integrate_forces()
+			if(state.get_contact_collider_velocity_at_position(0).y<0):
+				state.linear_velocity+=state.get_contact_collider_velocity_at_position(0)*Vector2(0.3,0.5)
+				state.integrate_forces()
 	if(Input.is_action_pressed("place_ball")):
 		state.linear_velocity=Vector2(0,0)
 		state.transform.origin=get_viewport().get_mouse_position()
