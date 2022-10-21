@@ -6,7 +6,7 @@ func _ready():
 	disable_lever()
 func ball_entered(ball_ref):
 	ball_ref.linear_velocity.x=0
-	ball_ref.linear_velocity.y=4500
+	ball_ref.linear_velocity.y=-1300
 	self.frame=0
 	self.play("launch")
 	
