@@ -459,6 +459,7 @@ texture = ExtResource( 32 )
 texture = ExtResource( 33 )
 
 [node name="LeftRamp" type="Sprite" parent="NewWalls"]
+visible = false
 texture = ExtResource( 13 )
 
 [node name="ArrowCluster3" parent="." instance=ExtResource( 26 )]
