@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -44,14 +44,29 @@ extents = Vector2( 12.5924, 15 )
 extents = Vector2( 100, 1000 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15.8641, 3.366 )
+extents = Vector2( 23.0204, 2.83098 )
+
+[sub_resource type="PhysicsMaterial" id=9]
+friction = 0.0
+bounce = 0.35
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 21.6873, 2.875 )
+
+[sub_resource type="PhysicsMaterial" id=10]
+friction = 0.0
+bounce = 0.3
+absorbent = true
 
 [sub_resource type="PhysicsMaterial" id=5]
 friction = 0.0
+bounce = 0.3
+absorbent = true
 
 [sub_resource type="PhysicsMaterial" id=6]
 friction = 0.0
-bounce = 0.25
+bounce = 0.3
 absorbent = true
 
 [sub_resource type="CircleShape2D" id=7]
@@ -86,7 +101,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher/Area2D"]
 position = Vector2( 5.38171, 0.648193 )
 rotation = -0.14664
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="Pressure" type="AudioStreamPlayer2D" parent="Launcher"]
@@ -156,6 +170,20 @@ rotation = 1.56748
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
 shape = SubResource( 1 )
 
+[node name="LeverRight" type="StaticBody2D" parent="."]
+position = Vector2( 558, 484 )
+rotation = -0.503199
+scale = Vector2( 1, 1.11021 )
+
+[node name="Line2D" type="Line2D" parent="LeverRight"]
+points = PoolVector2Array( 0, 0, 34, 0 )
+width = 5.0
+default_color = Color( 0.321569, 0.286275, 0.286275, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverRight"]
+position = Vector2( 14.9416, 0.526184 )
+shape = SubResource( 3 )
+
 [node name="GutterLauncherRight" parent="." instance=ExtResource( 30 )]
 position = Vector2( 574, 485 )
 rotation = -0.00987466
@@ -163,27 +191,22 @@ scale = Vector2( 0.1, 0.14 )
 z_index = 2
 animation = "default"
 frame = 0
+left_or_right = "Right"
 
-[node name="Lever" type="StaticBody2D" parent="GutterLauncherRight"]
-position = Vector2( -163.05, -17.0894 )
-rotation = -0.160482
-scale = Vector2( 9.87964, 7.9801 )
+[node name="LeverLeft" type="StaticBody2D" parent="."]
+position = Vector2( 216.022, 466.141 )
+rotation = 0.263473
+scale = Vector2( 0.965674, 1.08389 )
+physics_material_override = SubResource( 9 )
 
-[node name="Line2D" type="Line2D" parent="GutterLauncherRight/Lever"]
-points = PoolVector2Array( 0, 0, 30, 0 )
+[node name="Line2D" type="Line2D" parent="LeverLeft"]
+points = PoolVector2Array( -2, 0, 40, 0 )
 width = 5.0
-default_color = Color( 1, 1, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+default_color = Color( 0.282353, 0.282353, 0.282353, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GutterLauncherRight/Lever"]
-position = Vector2( 14.9416, 0.526184 )
-shape = SubResource( 3 )
-disabled = true
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverLeft"]
+position = Vector2( 18.5764, 0.193878 )
+shape = SubResource( 11 )
 
 [node name="GutterLauncherLeft" parent="." instance=ExtResource( 30 )]
 position = Vector2( 233, 475 )
@@ -191,27 +214,6 @@ rotation = 0.152588
 scale = Vector2( 0.08, 0.14 )
 animation = "default"
 frame = 0
-
-[node name="Lever" type="StaticBody2D" parent="GutterLauncherLeft"]
-position = Vector2( -166.911, -57.1089 )
-rotation = 0.067182
-scale = Vector2( 12.0108, 7.7548 )
-
-[node name="Line2D" type="Line2D" parent="GutterLauncherLeft/Lever"]
-points = PoolVector2Array( 0, 0, 30, 0 )
-width = 5.0
-default_color = Color( 1, 1, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GutterLauncherLeft/Lever"]
-position = Vector2( 14.9416, 0.526184 )
-shape = SubResource( 3 )
-disabled = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 492, 418 )
@@ -307,6 +309,7 @@ position = Vector2( -120, -173 )
 texture = ExtResource( 28 )
 
 [node name="LeftFrame" type="StaticBody2D" parent="."]
+physics_material_override = SubResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftFrame"]
 polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 216, 464, 190, 430, 181, 478, 184, 456, 189, 428, 191, 404, 199, 345, 210, 269, 226, 163, 238, 122, 248, 100, 262, 82, 281, 66, 303, 57, 337, 47, 377, 45, 392, 39, 405, 37, 404, 24, 240, 28, 238, 36, 163, 574, 306, 574 )

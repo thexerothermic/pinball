@@ -22,7 +22,6 @@ colors = PoolColorArray( 1, 1, 1, 0.0392157, 1, 1, 1, 0.588235 )
 mode = 2
 mass = 1.02041
 physics_material_override = SubResource( 2 )
-gravity_scale = 10.0
 custom_integrator = true
 continuous_cd = 1
 contacts_reported = 4

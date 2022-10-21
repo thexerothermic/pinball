@@ -93,6 +93,7 @@ func load_settings():
 		settings = default_settings.duplicate()
 		save_settings()
 	
+	
 
 func change_setting(setting_to_change,new_value):
 	if (settings.has(setting_to_change)):
