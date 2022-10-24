@@ -168,7 +168,6 @@ texture = ExtResource( 31 )
 [node name="Wall" type="StaticBody2D" parent="Walls"]
 position = Vector2( 287, -186 )
 rotation = -0.136346
-scale = Vector2( 1, 1 )
 physics_material_override = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]

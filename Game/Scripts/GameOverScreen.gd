@@ -1,62 +1,73 @@
 extends Node2D
-#var save_nodes = get_tree().get_nodes_in_group("Leaderboard")
-
+var score_file = "res://Framework/saves/scores.sav"
+var name_file = "res://Framework/saves/names.sav"
+var highscores = [10000,9000,8000,7000,6000,5000,4000,3000,2000,1000]
+var names = ["AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ"]
+var newScore = 0
+var newHighScore = 0
+var newHighScoreCheck = false
 
 func _ready():
-	$Score.set_text(SceneHandler.get_score())
+	newScore = int(SceneHandler.get_score())
+	$Scorebox/Score.set_text(str(newScore))
+	load_scores()
+	check_new_score()
 
 func _on_PlayAgain_pressed():
 	SceneHandler.quick_load_scene("Game")
 
-"""
-func save():
-	var save_dict = {
-	"filename" : get_filename(),
-	"parent" : get_parent().get_path(),
-	"player_name" : pname,
-	"player_score" :  score,
-	}
-	return save_dict
-
-func save_game():
-	var save_game = file.new()
-	save_game.open("res://Framework/saves/leaderboard.save", File.WRITE)
-	var save_nodes = get_tree().get_nodes_in_group("Leaderboard")
+func load_scores():
+	var f1 = File.new()
+	var f2 = File.new()
+	if f1.file_exists(score_file) && f2.file_exists(name_file):
+		f1.open(score_file, File.READ)
+		f2.open(name_file, File.READ)
+		for n in 10:
+			highscores[n] = int(f1.get_line())
+			names[n] = f2.get_line()
+		f1.close()
+		f2.close()
+		
+func save_scores():
+	var f1 = File.new()
+	var f2 = File.new()
 	
-	for node in save_nodes:
-		# Check the node is an instanced scene so it can be instanced again during load.
-		if node.filename.empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
-			continue
+	f1.open(score_file, File.WRITE)
+	f2.open(name_file, File.WRITE)
+	for n in 10:
+		f1.store_line(str(highscores[n]))
+		f2.store_line(str(names[n]))
+	f1.close()
+	f2.close()
 
-		# Check the node has a save function.
-		if !node.has_method("save"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
-			continue
+func check_new_score():
+	for n in 10:
+		if newScore > highscores[n]:
+			newHighScore = n
+			highscores[n] = newScore
+			$Popup.show()
+			newHighScoreCheck = true
+			break
+	if(newHighScoreCheck == false):
+		update_scores()
 
-		# Call the node's save function.
-		var node_data = node.call("save")
-
-		# Store the save dictionary as a new line in the save file.
-		save_game.store_line(to_json(node_data))
-	save_game.close()
-	
-func load_game():
-	var save_game = file.new()
-	if not save_game.file_exists("res://Framework/saves/leaderboard.save"):
-		return
-		
-	var save_nodes = get_tree().get_nodes_in_group("leaderboard")
-	for i in save_nodes:
-		i.queue_free()
-		
-	save_game.open("res://Framework/saves/leaderboard.save")
-	while save_game.get_position() < save_game.get_len():
-		var node_data = parse_json(save_game.get_line())
-		
-	var new_object = load(node_data["filename"]).instance()
-	get_node(node_data)
-"""
+func update_scores():
+	$Leaderbox/HighScore/VBox1/Player1.set_text(names[0] + ": " + str(highscores[0]))
+	$Leaderbox/HighScore/VBox1/Player2.set_text(names[1] + ": " + str(highscores[1]))
+	$Leaderbox/HighScore/VBox1/Player3.set_text(names[2] + ": " + str(highscores[2]))
+	$Leaderbox/HighScore/VBox1/Player4.set_text(names[3] + ": " + str(highscores[3]))
+	$Leaderbox/HighScore/VBox1/Player5.set_text(names[4] + ": " + str(highscores[4]))
+	$Leaderbox/HighScore/VBox2/Player6.set_text(names[5] + ": " + str(highscores[5]))
+	$Leaderbox/HighScore/VBox2/Player7.set_text(names[6] + ": " + str(highscores[6]))
+	$Leaderbox/HighScore/VBox2/Player8.set_text(names[7] + ": " + str(highscores[7]))
+	$Leaderbox/HighScore/VBox2/Player9.set_text(names[8] + ": " + str(highscores[8]))
+	$Leaderbox/HighScore/VBox2/Player10.set_text(names[9] + ": " + str(highscores[9]))
+	save_scores()
 
 
-
+func _on_Button_pressed():
+	var newName = $Popup/Initials.get_text()
+	names[newHighScore] = newName
+	$Popup.hide()
+	update_scores()
+	newHighScoreCheck = false
