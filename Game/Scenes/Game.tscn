@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
+[ext_resource path="res://Game/Objects/WormholeOut.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Objects/Bumper.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Objects/Flipper.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Objects/BallChute.tscn" type="PackedScene" id=6]
@@ -15,6 +16,7 @@
 [ext_resource path="res://Game/Art/leftgutter.png" type="Texture" id=14]
 [ext_resource path="res://Game/Objects/Target.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Game/Objects/Pusher.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Game/Objects/WormholeIn.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Game/Scripts/UI.gd" type="Script" id=18]
 [ext_resource path="res://Framework/Audio/SFX/pressure.wav" type="AudioStream" id=19]
 [ext_resource path="res://Framework/Audio/SFX/pressure_release2.wav" type="AudioStream" id=20]
@@ -94,6 +96,7 @@ friction = 0.0
 bounce = 0.1
 
 [sub_resource type="CircleShape2D" id=7]
+radius = 6.40311
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -163,12 +166,12 @@ self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 400, 293 )
 
 [node name="Background" type="Sprite" parent="Walls"]
+position = Vector2( 0, 1 )
 texture = ExtResource( 31 )
 
 [node name="Wall" type="StaticBody2D" parent="Walls"]
 position = Vector2( 287, -186 )
 rotation = -0.136346
-scale = Vector2( 1, 1 )
 physics_material_override = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
@@ -342,13 +345,13 @@ texture = ExtResource( 28 )
 physics_material_override = SubResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftFrame"]
-polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 216, 464, 190, 430, 181, 478, 184, 456, 189, 428, 191, 404, 199, 345, 210, 269, 226, 163, 238, 122, 248, 100, 262, 82, 281, 66, 303, 57, 337, 47, 377, 45, 392, 39, 405, 37, 404, 24, 240, 28, 238, 36, 163, 574, 306, 574 )
+polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 213, 468, 242, 359, 201, 329, 184, 456, 191, 404, 210, 269, 226, 163, 238, 122, 248, 100, 269, 75, 252, 58, 266, 41, 286, 54, 292, 59, 312, 55, 337, 47, 370, 41, 392, 39, 401, 39, 401, 26, 271, 23, 240, 28, 238, 36, 163, 574, 306, 574 )
 
 [node name="Polygon2D" type="Polygon2D" parent="LeftFrame"]
 texture = ExtResource( 34 )
 texture_scale = Vector2( 1.5, 1.5 )
 texture_rotation_degrees = -120.0
-polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 216, 464, 190, 430, 181, 478, 184, 456, 189, 428, 191, 404, 199, 345, 210, 269, 226, 163, 238, 122, 248, 100, 262, 82, 281, 66, 303, 57, 337, 47, 377, 45, 392, 39, 405, 37, 404, 24, 240, 28, 238, 36, 163, 574, 306, 574 )
+polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 213, 468, 242, 359, 201, 329, 184, 456, 191, 404, 210, 269, 226, 163, 238, 122, 248, 100, 273, 75, 255, 59, 271, 44, 289, 59, 303, 57, 337, 47, 370, 41, 392, 39, 401, 39, 401, 26, 240, 28, 238, 36, 163, 574, 306, 574 )
 
 [node name="OuterRightFrame" type="StaticBody2D" parent="."]
 position = Vector2( 0, -2 )
@@ -370,6 +373,9 @@ __meta__ = {
 [node name="InnerRightFrame" type="StaticBody2D" parent="."]
 position = Vector2( 0, -2 )
 physics_material_override = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InnerRightFrame"]
 polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 566, 234, 609, 504, 614, 505, 619, 504, 636, 502, 647, 575 )
@@ -385,13 +391,13 @@ __meta__ = {
 }
 
 [node name="PopBumper1" parent="." instance=ExtResource( 12 )]
-position = Vector2( 404, 94 )
+position = Vector2( 342, 83 )
 
 [node name="PopBumper2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 381, 154 )
+position = Vector2( 340, 146 )
 
 [node name="PopBumper3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 337, 92 )
+position = Vector2( 283, 115 )
 
 [node name="LeftTargets" parent="." instance=ExtResource( 15 )]
 position = Vector2( 230, 229 )
@@ -460,25 +466,46 @@ selecting_enabled = false
 
 [node name="ArrowCluster" parent="." instance=ExtResource( 26 )]
 position = Vector2( 40, 201 )
+__meta__ = {
+"_edit_lock_": true
+}
 reset_cd = 0.15
 
 [node name="Arrow" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 564, 208 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow2" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 563, 201 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow3" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 562, 193 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow4" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 549, 103 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow5" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 548, 96 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow6" parent="ArrowCluster" instance=ExtResource( 27 )]
 position = Vector2( 547, 88 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="NewWalls" type="Sprite" parent="."]
 position = Vector2( 409, 303 )
@@ -495,44 +522,77 @@ texture = ExtResource( 13 )
 [node name="ArrowCluster3" parent="." instance=ExtResource( 26 )]
 position = Vector2( 560, 167 )
 rotation = -0.110694
+__meta__ = {
+"_edit_lock_": true
+}
 reset_cd = 0.1
 
 [node name="Arrow" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( 14.6542, -2.59128 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow2" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( 13.6542, -9.59131 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow3" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( 12.6542, -17.5913 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow4" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -7.46045, -79.291 )
 rotation = -0.650184
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow5" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -12.4937, -84.2575 )
 rotation = -0.650184
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow6" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -18.1323, -90.02 )
 rotation = -0.650184
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow7" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -42.6227, -105.353 )
 rotation = -1.19827
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow8" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -50.4633, -107.231 )
 rotation = -1.19827
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow9" parent="ArrowCluster3" instance=ExtResource( 27 )]
 position = Vector2( -78.9544, -113.416 )
 rotation = -1.34699
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Arrow10" parent="ArrowCluster3" instance=ExtResource( 27 )]
-position = Vector2( -84.5863, -117.06 )
+position = Vector2( -84.5862, -117.061 )
 rotation = -1.34699
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Pusher" parent="." instance=ExtResource( 16 )]
 position = Vector2( 569, 139 )
@@ -561,3 +621,49 @@ rotation = -1.20501
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher4"]
 shape = SubResource( 7 )
+
+[node name="InnerFramePiece0" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InnerFramePiece0"]
+polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 556, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234 )
+
+[node name="Polygon2D" type="Polygon2D" parent="InnerFramePiece0"]
+polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 554, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234 )
+
+[node name="Arrow" parent="InnerFramePiece0" instance=ExtResource( 27 )]
+position = Vector2( 536, 268 )
+rotation = -3.3458
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WormholeIn" parent="." instance=ExtResource( 17 )]
+position = Vector2( 523, 266 )
+rotation = 1.36136
+
+[node name="Pusher5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 567, 425 )
+rotation = -0.187655
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher5"]
+rotation = 1.14494
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pusher6" parent="." instance=ExtResource( 16 )]
+position = Vector2( 557, 372 )
+rotation = -0.187655
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher6"]
+rotation = 1.14494
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WormholeOut" parent="." instance=ExtResource( 3 )]

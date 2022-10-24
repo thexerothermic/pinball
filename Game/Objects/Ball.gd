@@ -5,7 +5,7 @@ var myTimer:Timer
 var reset = false
 const is_ball = true
 var ball_points = 0
-
+var go_through_wormhole = false
 func _ready():
 	
 	SoundSystem.play_sound("new_ball")
@@ -71,3 +71,9 @@ func _integrate_forces(state):
 		state.transform.origin=get_parent().get_node("Launcher").position
 	else:
 		state.linear_velocity.y+=3.5
+	if(go_through_wormhole):
+		state.linear_velocity = Vector2(0,0)
+		state.set_transform(Transform2D(0,get_node("../WormholeOut").position))
+		state.linear_velocity = Vector2(1,1)
+		go_through_wormhole = false
+		
