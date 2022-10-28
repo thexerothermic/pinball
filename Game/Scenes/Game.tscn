@@ -101,6 +101,33 @@ radius = 6.40311
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Launcher_Graphic" type="Sprite" parent="."]
+position = Vector2( 405, 298 )
+z_index = 10
+texture = ExtResource( 24 )
+
+[node name="BotRings" type="Sprite" parent="Launcher_Graphic"]
+texture = ExtResource( 21 )
+
+[node name="TopLauncher" type="Sprite" parent="Launcher_Graphic"]
+position = Vector2( 3, 3.5 )
+texture = ExtResource( 25 )
+
+[node name="TopPlastic" type="Sprite" parent="Launcher_Graphic"]
+position = Vector2( 5, 5 )
+texture = ExtResource( 23 )
+
+[node name="TopRings" type="Sprite" parent="Launcher_Graphic"]
+position = Vector2( 5, 5 )
+texture = ExtResource( 22 )
+
+[node name="TopLauncherCollider" type="StaticBody2D" parent="Launcher_Graphic"]
+position = Vector2( -4, -1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Launcher_Graphic/TopLauncherCollider"]
+position = Vector2( 148, -145 )
+polygon = PoolVector2Array( -1, 1, -4, -12, -10, -28, -22, -41, -39, -57, -56, -66, -70, -71, -81, -73, -82, -78, -69, -76, -54, -70, -35, -61, -18, -44, -5, -28, 0, -12, 2, 0 )
+
 [node name="Launcher" type="Position2D" parent="."]
 position = Vector2( 614, 483 )
 z_index = 100
@@ -134,39 +161,12 @@ shape = SubResource( 4 )
 stream = ExtResource( 19 )
 bus = "SFX"
 
-[node name="Launcher_Graphic" type="Sprite" parent="."]
-position = Vector2( 405, 298 )
-z_index = 2
-texture = ExtResource( 24 )
-
-[node name="BotRings" type="Sprite" parent="Launcher_Graphic"]
-texture = ExtResource( 21 )
-
-[node name="TopLauncher" type="Sprite" parent="Launcher_Graphic"]
-position = Vector2( 3, 3.5 )
-texture = ExtResource( 25 )
-
-[node name="TopPlastic" type="Sprite" parent="Launcher_Graphic"]
-position = Vector2( 5, 5 )
-texture = ExtResource( 23 )
-
-[node name="TopRings" type="Sprite" parent="Launcher_Graphic"]
-position = Vector2( 5, 5 )
-texture = ExtResource( 22 )
-
-[node name="TopLauncherCollider" type="StaticBody2D" parent="Launcher_Graphic"]
-position = Vector2( -4, -1 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Launcher_Graphic/TopLauncherCollider"]
-position = Vector2( 148, -145 )
-polygon = PoolVector2Array( -1, 1, -4, -12, -10, -28, -22, -41, -39, -57, -56, -66, -70, -71, -81, -73, -82, -78, -69, -76, -54, -70, -35, -61, -18, -44, -5, -28, 0, -12, 2, 0 )
-
 [node name="Walls" type="Node2D" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 400, 293 )
 
 [node name="Background" type="Sprite" parent="Walls"]
-position = Vector2( 0, 1 )
+position = Vector2( 4, 0 )
 texture = ExtResource( 31 )
 
 [node name="Wall" type="StaticBody2D" parent="Walls"]

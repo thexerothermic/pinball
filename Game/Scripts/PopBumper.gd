@@ -20,6 +20,7 @@ func bumped(body:Node):
 		SoundSystem.play_sound("bump1")
 
 		_animated_sprite.play("activate")
+		$AnimatedSprite/Light2D.set_enabled(true)
 		SoundSystem.play_sound("pop_bumper_hit")
 		
 		
@@ -33,5 +34,6 @@ func get_points():
 
 func _on_AnimatedSprite_animation_finished():
 	_animated_sprite.stop()
+	$AnimatedSprite/Light2D.set_enabled(false)
 	_animated_sprite.play("default")
 
