@@ -197,7 +197,6 @@ custom_fonts/font = SubResource( 6 )
 text = "JJJ: 1000"
 
 [node name="Popup" type="Popup" parent="."]
-visible = true
 margin_left = 4.0
 margin_top = 133.0
 margin_right = 785.0
