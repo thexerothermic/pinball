@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Objects/Arrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Scripts/WormholeOut.gd" type="Script" id=2]
+[ext_resource path="res://Game/Art/NewTable/Arrow_On.png" type="Texture" id=3]
+[ext_resource path="res://Game/Art/NewTable/Arrow_Off.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 500, 565 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 500, 565 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 12.1015, 1.16223 )
+
+[node name="WormholeOut" type="RigidBody2D"]
+position = Vector2( 272, 60 )
+mode = 1
+script = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 1
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -19, -1, 4, 19, 20, -1, -5, -18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Arrow" parent="Polygon2D" instance=ExtResource( 1 )]
+position = Vector2( 1, -2 )
+rotation = 2.30907
+z_index = 2
+frames = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 11.058, 7.92355 )
+rotation = 2.26369
+scale = Vector2( 1, 1 )
+shape = SubResource( 19 )
+one_way_collision = true
+one_way_collision_margin = 30.0

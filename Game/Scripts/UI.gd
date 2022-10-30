@@ -13,6 +13,7 @@ func sub_life():
 	else:
 		SceneHandler.set_score($score/score_counter.get_text())
 		#print("final score "+ $score/score_counter.get_text())
+		
 		SceneHandler.quick_load_scene("GameOver")
 		#$score/score_counter.set_text(str(0))
 		#$lives/live_counter.set_text(str(3))
