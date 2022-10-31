@@ -60,7 +60,7 @@ margin_bottom = 4.57764e-05
 theme = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
 bbcode_text = "[center]Galaxy Pinball[/center]"
-text = "[center]Galaxy Pinball[/center]"
+text = "Galaxy Pinball"
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
@@ -76,27 +76,27 @@ __meta__ = {
 [node name="Play" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 25.0
-margin_right = 89.0
-margin_bottom = 32.0
+margin_left = 48.0
+margin_right = 82.0
+margin_bottom = 24.0
 text = "Play"
 function_name_on_click = "play_click"
 
 [node name="Options" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 93.0
-margin_right = 157.0
-margin_bottom = 32.0
+margin_left = 86.0
+margin_right = 143.0
+margin_bottom = 24.0
 text = "Options"
 function_name_on_click = "options_click"
 
 [node name="Credits" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 161.0
-margin_right = 225.0
-margin_bottom = 32.0
+margin_left = 147.0
+margin_right = 201.0
+margin_bottom = 24.0
 text = "Credits"
 function_name_on_click = "credits_click"
 
