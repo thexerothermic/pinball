@@ -631,6 +631,7 @@ __meta__ = {
 polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 556, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234 )
 
 [node name="Polygon2D" type="Polygon2D" parent="InnerFramePiece0"]
+texture = ExtResource( 34 )
 polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 554, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234 )
 
 [node name="Arrow" parent="InnerFramePiece0" instance=ExtResource( 27 )]
@@ -667,3 +668,4 @@ __meta__ = {
 }
 
 [node name="WormholeOut" parent="." instance=ExtResource( 3 )]
+z_index = 1
