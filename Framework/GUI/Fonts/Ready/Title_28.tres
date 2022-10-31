@@ -1,9 +1,9 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://Framework/GUI/Fonts/Raw/GothicPixels/GothicPixels.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/Arcade/ka1.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 15
-outline_size = 1
+size = 28
 outline_color = Color( 0, 0, 0, 0.490196 )
+extra_spacing_char = 2
 font_data = ExtResource( 1 )

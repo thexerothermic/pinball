@@ -23,33 +23,12 @@ margin_right = -6.10352e-05
 margin_bottom = -3.05176e-05
 theme = ExtResource( 5 )
 
-[node name="Header" type="Panel" parent="Panel"]
-anchor_right = 1.0
-anchor_bottom = 0.133
-margin_bottom = 0.0999985
-
-[node name="HeaderLabel" parent="Panel/Header" instance=ExtResource( 2 )]
-margin_top = 10.0
-theme = ExtResource( 5 )
-bbcode_text = "[center]Options"
-text = "[center]Options"
-
-[node name="MenuButton" parent="Panel/Header" instance=ExtResource( 1 )]
-anchor_left = 0.83
-anchor_bottom = 0.9
-margin_left = -3.05176e-05
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = 0.0
-text = "Close"
-name_of_master_node = "Options"
-function_name_on_click = "close"
-
 [node name="Contents" type="Panel" parent="Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_top = 0.133
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 0.0999985
+margin_top = 0.100002
 
 [node name="Fullscreen" type="CheckBox" parent="Panel/Contents"]
 margin_left = 15.0
@@ -101,3 +80,26 @@ margin_right = 180.0
 margin_bottom = -1.0
 bbcode_text = "SFX"
 text = "SFX"
+
+[node name="Header" type="Panel" parent="Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 0.133
+margin_bottom = 0.0999985
+
+[node name="HeaderLabel" parent="Panel/Header" instance=ExtResource( 2 )]
+margin_top = 10.0
+theme = ExtResource( 5 )
+bbcode_text = "[center]Options"
+text = "Options"
+
+[node name="MenuButton" parent="Panel/Header" instance=ExtResource( 1 )]
+anchor_left = 0.83
+anchor_bottom = 0.9
+margin_left = -3.05176e-05
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 0.0
+text = "Close"
+name_of_master_node = "Options"
+function_name_on_click = "close"

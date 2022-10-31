@@ -16,9 +16,8 @@ anchor_left = 0.405
 anchor_top = 0.15
 anchor_right = 0.591
 anchor_bottom = 0.293
-margin_left = -3.05176e-05
-margin_right = 0.199982
-margin_bottom = 0.199997
+margin_right = 24.2
+margin_bottom = 25.2
 theme = ExtResource( 5 )
 
 [node name="Menu" type="Control" parent="."]
@@ -36,8 +35,8 @@ anchor_left = 0.047
 anchor_top = 0.27
 anchor_right = 0.94
 anchor_bottom = 0.47
-margin_left = -0.0500002
-margin_right = -1.52588e-05
+margin_left = -0.0499983
+margin_right = 22.0
 
 [node name="Resume" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.5
@@ -59,8 +58,9 @@ function_name_on_click = "options_click"
 [node name="Quit" parent="Menu/HBoxContainer" instance=ExtResource( 2 )]
 anchor_top = 1.15
 anchor_bottom = 2.15
+margin_top = 13.0
 margin_right = 0.0
-margin_bottom = 0.0
+margin_bottom = 25.0
 text = "Quit to Main Menu"
 name_of_master_node = "PauseMenu"
 function_name_on_click = "quit_click"
@@ -68,7 +68,8 @@ function_name_on_click = "quit_click"
 [node name="HeaderLabel" parent="Menu" instance=ExtResource( 4 )]
 anchor_right = 0.967
 anchor_bottom = 0.24
-margin_right = -0.0500031
+margin_top = -4.0
+margin_right = 21.95
 rect_min_size = Vector2( 0, 24 )
 bbcode_text = "[center]Pause"
 text = "Pause"
