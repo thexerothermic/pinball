@@ -6,6 +6,7 @@ var reset = false
 const is_ball = true
 var ball_points = 0
 var go_through_wormhole = false
+var rng = RandomNumberGenerator.new()
 func _ready():
 	
 	SoundSystem.play_sound("new_ball")
@@ -74,6 +75,6 @@ func _integrate_forces(state):
 	if(go_through_wormhole):
 		state.linear_velocity = Vector2(0,0)
 		state.set_transform(Transform2D(0,get_node("../WormholeOut").position))
-		state.linear_velocity = Vector2(1,1)
+		state.set_linear_velocity(Vector2(rng.randf_range(400,420),rng.randf_range(369,400)))
 		go_through_wormhole = false
 		

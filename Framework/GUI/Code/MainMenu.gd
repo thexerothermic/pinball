@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	SoundSystem.play_music("Space Sprinkles",".ogg")
+	SoundSystem.play_music("Space Marines",".ogg")
 	
 
 func play_click():
