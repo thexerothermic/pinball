@@ -27,7 +27,7 @@ func bumped(ball_ref:RigidBody2D):
 #		ball_ref.linear_velocity*=-1.2
 		var randomXVelocity = rng.randf_range(100, 200)
 		var randomYVelocity = rng.randf_range(100, 200)
-		ball_ref.linear_velocity+=((ball_ref.global_position-self.global_position)+Vector2(randomXVelocity,randomYVelocity)).normalized()*450
+		ball_ref.linear_velocity-=((ball_ref.global_position-self.global_position)+Vector2(randomXVelocity,randomYVelocity)).normalized()*450
 		
 		SoundSystem.play_sound("target_hit")
 		self.hide()

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Game/Art/bumper.png" type="Texture" id=1]
 [ext_resource path="res://Game/Scripts/Bumper.gd" type="Script" id=2]
-[ext_resource path="res://Game/Art/bumper2.png" type="Texture" id=3]
-[ext_resource path="res://Game/Art/bumper3.png" type="Texture" id=4]
+[ext_resource path="res://Game/Art/new_bumper.png" type="Texture" id=3]
+[ext_resource path="res://Game/Art/new_bumper2.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -17,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ ExtResource( 1 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -30,10 +29,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ]
 }
 
 [node name="Bumper" type="RigidBody2D"]
@@ -41,7 +40,7 @@ mode = 1
 script = ExtResource( 2 )
 
 [node name="Bumper" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 20.1, 22, 15.2, 22, -21.7, 42, -26.5, 42, -26.5, 33, -24.5, 33, 3.5, -34.6, 3.5, -39.7, 9, -40.2 )

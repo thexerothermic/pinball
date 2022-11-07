@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Game/Art/NewWalls.png" type="Texture" id=32]
 [ext_resource path="res://Game/Art/TopCap.png" type="Texture" id=33]
 [ext_resource path="res://Game/Art/metal_texture.jpg" type="Texture" id=34]
+[ext_resource path="res://Game/Art/Backdrop.png" type="Texture" id=35]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.815686, 0.984314, 0, 1 )
@@ -167,6 +168,7 @@ position = Vector2( 400, 293 )
 
 [node name="Background" type="Sprite" parent="Walls"]
 position = Vector2( 4, 0 )
+z_index = -10
 texture = ExtResource( 31 )
 
 [node name="Wall" type="StaticBody2D" parent="Walls"]
@@ -370,6 +372,40 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="RampLeft" type="StaticBody2D" parent="."]
+position = Vector2( -51, 99 )
+rotation = -0.343613
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RampLeft"]
+polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="RampLeft"]
+texture = ExtResource( 34 )
+texture_scale = Vector2( 1.5, 1.5 )
+texture_rotation_degrees = 100.0
+polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RampLeft2" type="StaticBody2D" parent="."]
+position = Vector2( -5, 98 )
+rotation = -0.343613
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RampLeft2"]
+polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="RampLeft2"]
+texture = ExtResource( 34 )
+texture_scale = Vector2( 1.5, 1.5 )
+texture_rotation_degrees = 100.0
+polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="InnerRightFrame" type="StaticBody2D" parent="."]
 position = Vector2( 0, -2 )
 physics_material_override = SubResource( 6 )
@@ -384,6 +420,7 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="InnerRightFrame"]
+self_modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 texture = ExtResource( 34 )
 polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 560, 235, 599, 505, 614, 505, 619, 504, 636, 502, 647, 575 )
 __meta__ = {
@@ -391,21 +428,21 @@ __meta__ = {
 }
 
 [node name="PopBumper1" parent="." instance=ExtResource( 12 )]
-position = Vector2( 342, 83 )
+position = Vector2( 385, 97 )
 
 [node name="PopBumper2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 340, 146 )
+position = Vector2( 372, 186 )
 
 [node name="PopBumper3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 283, 115 )
+position = Vector2( 315, 155 )
 
 [node name="LeftTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 230, 229 )
-rotation = -1.10131
+position = Vector2( 336, 60 )
+rotation = -0.126486
 
 [node name="RightTargets" parent="." instance=ExtResource( 15 )]
-position = Vector2( 507, 111 )
-rotation = 0.857925
+position = Vector2( 533, 139 )
+rotation = 1.36521
 
 [node name="UI" type="Polygon2D" parent="."]
 position = Vector2( 3, -1 )
@@ -519,6 +556,10 @@ texture = ExtResource( 33 )
 visible = false
 texture = ExtResource( 13 )
 
+[node name="Background" type="Sprite" parent="NewWalls"]
+z_index = -3
+texture = ExtResource( 35 )
+
 [node name="ArrowCluster3" parent="." instance=ExtResource( 26 )]
 position = Vector2( 560, 167 )
 rotation = -0.110694
@@ -599,6 +640,34 @@ position = Vector2( 569, 139 )
 rotation = -0.187655
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher"]
+shape = SubResource( 7 )
+
+[node name="Pusher7" parent="." instance=ExtResource( 16 )]
+position = Vector2( 311, 308 )
+rotation = -0.424857
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher7"]
+shape = SubResource( 7 )
+
+[node name="Pusher8" parent="." instance=ExtResource( 16 )]
+position = Vector2( 281, 262 )
+rotation = -0.307203
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher8"]
+shape = SubResource( 7 )
+
+[node name="Pusher9" parent="." instance=ExtResource( 16 )]
+position = Vector2( 262, 212 )
+rotation = -0.061619
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher9"]
+shape = SubResource( 7 )
+
+[node name="Pusher10" parent="." instance=ExtResource( 16 )]
+position = Vector2( 264, 155 )
+rotation = 0.0950939
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher10"]
 shape = SubResource( 7 )
 
 [node name="Pusher2" parent="." instance=ExtResource( 16 )]

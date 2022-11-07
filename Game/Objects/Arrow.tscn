@@ -41,3 +41,4 @@ position = Vector2( 0, -3 )
 scale = Vector2( 0.640625, 0.617188 )
 texture = ExtResource( 4 )
 color = Color( 1, 0.94902, 0, 1 )
+energy = 0.25
