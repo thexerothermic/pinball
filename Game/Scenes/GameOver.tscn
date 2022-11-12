@@ -1,237 +1,278 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Framework/GUI/Fonts/Raw/MinimalPixel/MinimalPixel v2.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Framework/GUI/Fonts/Raw/Nokia Cellphone FC/nokiafc22.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Framework/GUI/Fonts/Raw/GothicPixels/GothicPixels.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/gradientVector/GradientVector-Light.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game/Art/background.png" type="Texture" id=2]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/Project Space Font/Project Space.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Game/Scripts/GameOverScreen.gd" type="Script" id=4]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/Project Space Font/Project Space.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/gradientVector/GradientVector.otf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=1]
-size = 80
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.490196 )
+[sub_resource type="DynamicFont" id=9]
+size = 60
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=10]
 size = 30
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.215686 )
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 50
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.215686 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=11]
 size = 40
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=12]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 29
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=19]
+
+[sub_resource type="DynamicFont" id=14]
+size = 45
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=15]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 50
-font_data = ExtResource( 1 )
+[sub_resource type="DynamicFont" id=17]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 20
+font_data = ExtResource( 6 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Background" type="Polygon2D" parent="."]
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( 0, 0, 800, 0, 800, 600, 0, 600 )
+
 [node name="GameOver" type="Label" parent="."]
 margin_left = 5.0
-margin_top = -4.0
+margin_top = 3.0
 margin_right = 802.0
-margin_bottom = 134.0
+margin_bottom = 141.0
 size_flags_stretch_ratio = 1.5
-custom_fonts/font = SubResource( 1 )
-text = "Game Over"
+custom_fonts/font = SubResource( 9 )
+text = "GAME OVER"
 align = 1
 valign = 1
 
 [node name="Scorebox" type="HBoxContainer" parent="."]
-margin_left = 10.0
-margin_top = 135.0
-margin_right = 800.0
-margin_bottom = 225.0
+margin_left = 40.0
+margin_top = 137.0
+margin_right = 781.0
+margin_bottom = 227.0
 
 [node name="YourScore" type="Label" parent="Scorebox"]
-margin_top = 20.0
-margin_right = 310.0
-margin_bottom = 70.0
-custom_fonts/font = SubResource( 2 )
+margin_top = 26.0
+margin_right = 481.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 10 )
 text = "Your score: "
+uppercase = true
 
 [node name="Score" type="Label" parent="Scorebox"]
-margin_left = 314.0
-margin_top = 20.0
-margin_right = 343.0
-margin_bottom = 70.0
-custom_fonts/font = SubResource( 3 )
+margin_left = 485.0
+margin_top = 27.0
+margin_right = 507.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 11 )
 text = "0"
 align = 1
 
 [node name="PlayAgain" type="Button" parent="."]
-margin_left = 459.0
-margin_top = 225.0
-margin_right = 787.0
-margin_bottom = 294.0
-custom_fonts/font = SubResource( 5 )
+margin_left = 479.0
+margin_top = 212.0
+margin_right = 777.0
+margin_bottom = 295.0
+custom_fonts/font = SubResource( 12 )
 text = "Play Again"
 
-[node name="Leaderbox" type="HBoxContainer" parent="."]
-margin_left = 10.0
-margin_top = 225.0
-margin_right = 457.0
-margin_bottom = 294.0
-
-[node name="HighScore" type="Label" parent="Leaderbox"]
-margin_top = 3.0
-margin_right = 347.0
-margin_bottom = 66.0
-custom_fonts/font = SubResource( 4 )
+[node name="HighScore" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 258.0
+margin_right = 459.0
+margin_bottom = 300.0
+custom_fonts/font = SubResource( 13 )
 text = "High Scores"
+uppercase = true
 
-[node name="VBox1" type="VBoxContainer" parent="Leaderbox/HighScore"]
-margin_left = 21.0
-margin_top = 65.0
-margin_right = 389.0
-margin_bottom = 371.0
+[node name="Leaderbox" type="GridContainer" parent="."]
+margin_left = 15.0
+margin_top = 312.0
+margin_right = 790.0
+margin_bottom = 597.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 200
+columns = 2
+
+[node name="HBox1" type="HBoxContainer" parent="Leaderbox"]
+margin_right = 250.0
+margin_bottom = 285.0
+custom_constants/separation = 200
 alignment = 1
 
-[node name="Player1" type="Label" parent="Leaderbox/HighScore/VBox1"]
-margin_top = 45.0
-margin_right = 368.0
-margin_bottom = 85.0
+[node name="VBox1" type="VBoxContainer" parent="Leaderbox/HBox1"]
+margin_right = 250.0
+margin_bottom = 285.0
+theme = SubResource( 19 )
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Player1" type="Label" parent="Leaderbox/HBox1/VBox1"]
+margin_right = 250.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "AAA: 10000"
+uppercase = true
 
-[node name="Player2" type="Label" parent="Leaderbox/HighScore/VBox1"]
-margin_top = 89.0
-margin_right = 368.0
-margin_bottom = 129.0
+[node name="Player2" type="Label" parent="Leaderbox/HBox1/VBox1"]
+margin_top = 61.0
+margin_right = 250.0
+margin_bottom = 102.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "BBB: 9000"
+uppercase = true
 
-[node name="Player3" type="Label" parent="Leaderbox/HighScore/VBox1"]
-margin_top = 133.0
-margin_right = 368.0
-margin_bottom = 173.0
+[node name="Player3" type="Label" parent="Leaderbox/HBox1/VBox1"]
+margin_top = 122.0
+margin_right = 250.0
+margin_bottom = 163.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "CCC: 8000"
+uppercase = true
 
-[node name="Player4" type="Label" parent="Leaderbox/HighScore/VBox1"]
-margin_top = 177.0
-margin_right = 368.0
-margin_bottom = 217.0
+[node name="Player4" type="Label" parent="Leaderbox/HBox1/VBox1"]
+margin_top = 183.0
+margin_right = 250.0
+margin_bottom = 224.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "DDD: 7000"
+uppercase = true
 
-[node name="Player5" type="Label" parent="Leaderbox/HighScore/VBox1"]
-margin_top = 221.0
-margin_right = 368.0
-margin_bottom = 261.0
+[node name="Player5" type="Label" parent="Leaderbox/HBox1/VBox1"]
+margin_top = 244.0
+margin_right = 250.0
+margin_bottom = 285.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "EEE: 6000"
+uppercase = true
 
-[node name="VBox2" type="VBoxContainer" parent="Leaderbox/HighScore"]
-margin_left = 399.0
-margin_top = 67.0
-margin_right = 786.0
-margin_bottom = 370.0
+[node name="HBox2" type="HBoxContainer" parent="Leaderbox"]
+margin_left = 450.0
+margin_right = 675.0
+margin_bottom = 285.0
+alignment = 1
+
+[node name="VBox2" type="VBoxContainer" parent="Leaderbox/HBox2"]
+margin_right = 225.0
+margin_bottom = 285.0
 grow_horizontal = 0
 grow_vertical = 0
+custom_constants/separation = 20
 alignment = 1
 
-[node name="Player6" type="Label" parent="Leaderbox/HighScore/VBox2"]
-margin_top = 43.0
-margin_right = 387.0
-margin_bottom = 83.0
+[node name="Player6" type="Label" parent="Leaderbox/HBox2/VBox2"]
+margin_right = 225.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "FFF: 5000"
+uppercase = true
 
-[node name="Player7" type="Label" parent="Leaderbox/HighScore/VBox2"]
-margin_top = 87.0
-margin_right = 387.0
-margin_bottom = 127.0
+[node name="Player7" type="Label" parent="Leaderbox/HBox2/VBox2"]
+margin_top = 61.0
+margin_right = 225.0
+margin_bottom = 102.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "GGG: 4000"
+uppercase = true
 
-[node name="Player8" type="Label" parent="Leaderbox/HighScore/VBox2"]
-margin_top = 131.0
-margin_right = 387.0
-margin_bottom = 171.0
+[node name="Player8" type="Label" parent="Leaderbox/HBox2/VBox2"]
+margin_top = 122.0
+margin_right = 225.0
+margin_bottom = 163.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "HHH: 3000"
+uppercase = true
 
-[node name="Player9" type="Label" parent="Leaderbox/HighScore/VBox2"]
-margin_top = 175.0
-margin_right = 387.0
-margin_bottom = 215.0
+[node name="Player9" type="Label" parent="Leaderbox/HBox2/VBox2"]
+margin_top = 183.0
+margin_right = 225.0
+margin_bottom = 224.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "III: 2000"
+uppercase = true
 
-[node name="Player10" type="Label" parent="Leaderbox/HighScore/VBox2"]
-margin_top = 219.0
-margin_right = 387.0
-margin_bottom = 259.0
+[node name="Player10" type="Label" parent="Leaderbox/HBox2/VBox2"]
+margin_top = 244.0
+margin_right = 225.0
+margin_bottom = 285.0
 rect_pivot_offset = Vector2( 322, 40 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 14 )
 text = "JJJ: 1000"
+uppercase = true
 
 [node name="Popup" type="Popup" parent="."]
-margin_left = 4.0
-margin_top = 133.0
-margin_right = 785.0
-margin_bottom = 552.0
+margin_left = -3.0
+margin_top = 104.0
+margin_right = 800.0
+margin_bottom = 602.0
 
-[node name="ColorRect" type="ColorRect" parent="Popup"]
-margin_left = 5.0
-margin_top = 9.0
-margin_right = 786.0
-margin_bottom = 419.0
-color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+[node name="Polygon2D" type="Polygon2D" parent="Popup"]
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( 3, 3, 802, 8, 804, 497, 3, 495 )
 
 [node name="Label" type="Label" parent="Popup"]
-margin_left = 6.0
-margin_top = 10.0
-margin_right = 781.0
-margin_bottom = 424.0
-custom_fonts/font = SubResource( 7 )
+margin_left = 89.0
+margin_top = 115.0
+margin_right = 765.0
+margin_bottom = 218.0
+custom_fonts/font = SubResource( 15 )
 text = "New High Score!
 Please enter your initials"
 align = 1
 
-[node name="Initials" type="TextEdit" parent="Popup"]
-margin_left = 216.0
-margin_top = 135.0
-margin_right = 338.0
-margin_bottom = 195.0
-custom_fonts/font = SubResource( 8 )
-
 [node name="Button" type="Button" parent="Popup"]
-margin_left = 387.0
-margin_top = 145.0
-margin_right = 551.0
-margin_bottom = 183.0
+margin_left = 433.0
+margin_top = 264.0
+margin_right = 597.0
+margin_bottom = 302.0
 text = "confirm"
+
+[node name="Error" type="Label" parent="Popup"]
+visible = false
+margin_left = 174.0
+margin_top = 331.0
+margin_right = 680.0
+margin_bottom = 383.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Error, please only use 3 non-number characters"
+align = 1
+valign = 1
+
+[node name="Initials" type="LineEdit" parent="Popup"]
+margin_left = 260.0
+margin_top = 261.0
+margin_right = 402.0
+margin_bottom = 306.0
+custom_fonts/font = SubResource( 20 )
+align = 1
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="Popup/Button" to="." method="_on_Button_pressed"]
