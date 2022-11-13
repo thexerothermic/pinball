@@ -113,7 +113,7 @@ font_data = ExtResource( 37 )
 script = ExtResource( 2 )
 
 [node name="Launcher_Graphic" type="Sprite" parent="."]
-position = Vector2( 405, 298 )
+position = Vector2( 409, 298 )
 z_index = 10
 texture = ExtResource( 24 )
 
@@ -275,6 +275,14 @@ scale = Vector2( 0.105165, 0.14 )
 animation = "default"
 frame = 0
 
+[node name="LauncherLeft" parent="." instance=ExtResource( 30 )]
+position = Vector2( 229, 320 )
+rotation = 0.529259
+scale = Vector2( 0.105165, 0.14 )
+animation = "default"
+frame = 0
+left_or_right = "Neither"
+
 [node name="Bumper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 492, 418 )
 rotation = -0.0182214
@@ -405,36 +413,31 @@ texture_scale = Vector2( 1.5, 1.5 )
 texture_rotation_degrees = -33.0
 polygon = PoolVector2Array( 634, 573, 625, 518, 619, 477, 607, 395, 595, 316, 582, 232, 573, 165, 566, 127, 561, 111, 554, 94, 543, 78, 529, 67, 519, 60, 502, 52, 473, 46, 436, 43, 401, 41, 401, 28, 563, 27, 640, 573 )
 
-[node name="RampLeft" type="StaticBody2D" parent="."]
-position = Vector2( -51, 99 )
-rotation = -0.343613
-physics_material_override = SubResource( 5 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RampLeft"]
-polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
-
-[node name="Polygon2D2" type="Polygon2D" parent="RampLeft"]
-texture = ExtResource( 34 )
-texture_scale = Vector2( 1.5, 1.5 )
-texture_rotation_degrees = 100.0
-polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
-
 [node name="RampLeft2" type="StaticBody2D" parent="."]
 position = Vector2( -5, 98 )
 rotation = -0.343613
 physics_material_override = SubResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RampLeft2"]
-polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
+polygon = PoolVector2Array( 273.307, 114.784, 247.522, 151.228, 233.312, 179.068, 229.2, 193.528, 228.518, 210.278, 228.155, 255.817, 235.263, 292.348, 246.406, 332.446, 250.906, 343.615, 260.529, 337.499, 253.818, 311.732, 245.094, 276.747, 240.671, 247.551, 240.827, 211.496, 242.183, 192.863, 246.295, 178.403, 262.051, 152.178, 281.038, 122.861 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="RampLeft2"]
 texture = ExtResource( 34 )
 texture_scale = Vector2( 1.5, 1.5 )
 texture_rotation_degrees = 100.0
-polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
+polygon = PoolVector2Array( 273.307, 114.784, 247.522, 151.228, 233.312, 179.068, 229.2, 193.528, 228.518, 210.278, 228.155, 255.817, 235.263, 292.348, 246.406, 332.446, 250.906, 343.615, 260.529, 337.499, 253.818, 311.732, 245.094, 276.747, 240.671, 247.551, 240.827, 211.496, 242.183, 192.863, 246.295, 178.403, 262.051, 152.178, 281.038, 122.861 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Outline" type="Line2D" parent="RampLeft2/Polygon2D2"]
+show_behind_parent = true
+points = PoolVector2Array( 273.307, 114.784, 247.522, 151.228, 233.312, 179.068, 229.2, 193.528, 228.518, 210.278, 228.155, 255.817, 235.263, 292.348, 246.406, 332.446, 250.906, 343.615, 260.529, 337.499, 253.818, 311.732, 245.094, 276.747, 240.671, 247.551, 240.827, 211.496, 242.183, 192.863, 246.295, 178.403, 262.051, 152.178, 281.038, 122.861, 273.307, 114.784 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 34 )
+joint_mode = 2
+antialiased = true
 
 [node name="InnerRightFrame" type="StaticBody2D" parent="."]
 position = Vector2( 0, -2 )
@@ -452,11 +455,11 @@ __meta__ = {
 [node name="Polygon2D" type="Polygon2D" parent="InnerRightFrame"]
 self_modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 texture = ExtResource( 34 )
-polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 560, 235, 599, 505, 614, 505, 619, 504, 636, 502, 647, 575 )
+polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 564, 235, 601, 505, 614, 505, 619, 504, 636, 502, 647, 575 )
 
 [node name="Outline2" type="Line2D" parent="InnerRightFrame/Polygon2D"]
 show_behind_parent = true
-points = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 560, 235, 599, 505, 614, 505, 619, 504, 636, 502, 647, 575, 502, 573 )
+points = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 563, 235, 601, 505, 614, 505, 619, 504, 636, 502, 647, 575, 502, 573 )
 width = 3.0
 default_color = Color( 0, 0, 0, 1 )
 texture = ExtResource( 34 )
@@ -672,9 +675,7 @@ rotation = -1.20501
 shape = SubResource( 7 )
 
 [node name="InnerFramePiece0" type="StaticBody2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -3, 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InnerFramePiece0"]
 polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 556, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234 )
@@ -733,7 +734,7 @@ z_index = 1
 position = Vector2( -329, 122.971 )
 scale = Vector2( 2.4589, 1.71776 )
 z_index = 2
-color = Color( 0.0784314, 0.121569, 0.207843, 1 )
+color = Color( 0, 0, 0, 0 )
 polygon = PoolVector2Array( 217.577, -74.4991, 170.401, -44.625, 141.933, 18.6457, 222.864, 18.0599, 231.404, -58.0993, 368.864, -57.5134, 376.184, 18.0599, 456.708, 17.474, 433.934, -41.6958, 399.365, -74.4991, 302.981, -84.9779 )
 script = ExtResource( 18 )
 
@@ -744,14 +745,13 @@ margin_right = 412.156
 margin_bottom = -55.8419
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 18 )
-text = "Galaxy Pinball"
 align = 1
 
 [node name="score" type="Label" parent="UI"]
-margin_left = 377.404
-margin_top = -34.9126
-margin_right = 435.404
-margin_bottom = -15.9126
+margin_left = 379.031
+margin_top = -55.2877
+margin_right = 437.031
+margin_bottom = -36.2877
 custom_fonts/font = SubResource( 19 )
 text = "Score"
 align = 1
@@ -768,10 +768,10 @@ align = 1
 valign = 1
 
 [node name="lives" type="Label" parent="UI"]
-margin_left = 167.148
-margin_top = -35.4947
-margin_right = 226.148
-margin_bottom = -15.4947
+margin_left = 160.641
+margin_top = -52.3769
+margin_right = 219.641
+margin_bottom = -32.3769
 custom_fonts/font = SubResource( 19 )
 text = "Lives"
 align = 1
