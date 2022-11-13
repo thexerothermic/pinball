@@ -52,22 +52,25 @@ func check_new_score():
 		update_scores()
 
 func update_scores():
-	$Leaderbox/HighScore/VBox1/Player1.set_text(names[0] + ": " + str(highscores[0]))
-	$Leaderbox/HighScore/VBox1/Player2.set_text(names[1] + ": " + str(highscores[1]))
-	$Leaderbox/HighScore/VBox1/Player3.set_text(names[2] + ": " + str(highscores[2]))
-	$Leaderbox/HighScore/VBox1/Player4.set_text(names[3] + ": " + str(highscores[3]))
-	$Leaderbox/HighScore/VBox1/Player5.set_text(names[4] + ": " + str(highscores[4]))
-	$Leaderbox/HighScore/VBox2/Player6.set_text(names[5] + ": " + str(highscores[5]))
-	$Leaderbox/HighScore/VBox2/Player7.set_text(names[6] + ": " + str(highscores[6]))
-	$Leaderbox/HighScore/VBox2/Player8.set_text(names[7] + ": " + str(highscores[7]))
-	$Leaderbox/HighScore/VBox2/Player9.set_text(names[8] + ": " + str(highscores[8]))
-	$Leaderbox/HighScore/VBox2/Player10.set_text(names[9] + ": " + str(highscores[9]))
+	$Leaderbox/HBox1/VBox1/Player1.set_text(names[0] + ": " + str(highscores[0]))
+	$Leaderbox/HBox1/VBox1/Player2.set_text(names[1] + ": " + str(highscores[1]))
+	$Leaderbox/HBox1/VBox1/Player3.set_text(names[2] + ": " + str(highscores[2]))
+	$Leaderbox/HBox1/VBox1/Player4.set_text(names[3] + ": " + str(highscores[3]))
+	$Leaderbox/HBox1/VBox1/Player5.set_text(names[4] + ": " + str(highscores[4]))
+	$Leaderbox/HBox2/VBox2/Player6.set_text(names[5] + ": " + str(highscores[5]))
+	$Leaderbox/HBox2/VBox2/Player7.set_text(names[6] + ": " + str(highscores[6]))
+	$Leaderbox/HBox2/VBox2/Player8.set_text(names[7] + ": " + str(highscores[7]))
+	$Leaderbox/HBox2/VBox2/Player9.set_text(names[8] + ": " + str(highscores[8]))
+	$Leaderbox/HBox2/VBox2/Player10.set_text(names[9] + ": " + str(highscores[9]))
 	save_scores()
 
 
 func _on_Button_pressed():
 	var newName = $Popup/Initials.get_text()
-	names[newHighScore] = newName
-	$Popup.hide()
-	update_scores()
-	newHighScoreCheck = false
+	if(newName.length() <=3 && newName.length() > 0 ):
+		names[newHighScore] = newName
+		$Popup.hide()
+		update_scores()
+		newHighScoreCheck = false
+	else:
+		$Popup/Error.show()
