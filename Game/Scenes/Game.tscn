@@ -365,6 +365,15 @@ texture_scale = Vector2( 1.5, 1.5 )
 texture_rotation_degrees = -120.0
 polygon = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 213, 468, 242, 359, 201, 329, 184, 456, 191, 404, 210, 269, 226, 163, 238, 122, 248, 100, 273, 75, 255, 59, 271, 44, 289, 59, 303, 57, 337, 47, 370, 41, 392, 39, 401, 39, 401, 26, 240, 28, 238, 36, 163, 574, 306, 574 )
 
+[node name="Outline2" type="Line2D" parent="LeftFrame/Polygon2D"]
+show_behind_parent = true
+points = PoolVector2Array( 307, 565, 309, 511, 253, 473, 249, 479, 242, 503, 213, 495, 213, 468, 242, 359, 201, 329, 184, 456, 191, 404, 210, 269, 226, 163, 238, 122, 252, 89, 265, 76, 273, 69, 283, 64, 289, 61, 306, 53, 337, 45, 370, 41, 391, 35, 401, 34, 401, 26, 240, 28, 238, 36, 163, 574, 306, 574 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 34 )
+joint_mode = 2
+antialiased = true
+
 [node name="OuterRightFrame" type="StaticBody2D" parent="."]
 position = Vector2( 0, -2 )
 physics_material_override = SubResource( 5 )
@@ -378,9 +387,6 @@ texture = ExtResource( 34 )
 texture_scale = Vector2( 1.5, 1.5 )
 texture_rotation_degrees = -33.0
 polygon = PoolVector2Array( 634, 573, 625, 518, 619, 477, 607, 395, 595, 316, 582, 232, 573, 165, 566, 127, 561, 111, 554, 94, 543, 78, 529, 67, 519, 60, 502, 52, 473, 46, 436, 43, 401, 41, 401, 28, 563, 27, 640, 573 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="RampLeft" type="StaticBody2D" parent="."]
 position = Vector2( -51, 99 )
@@ -395,9 +401,6 @@ texture = ExtResource( 34 )
 texture_scale = Vector2( 1.5, 1.5 )
 texture_rotation_degrees = 100.0
 polygon = PoolVector2Array( 250, 344, 235, 287, 228, 208, 235, 177, 249, 152, 274, 111, 279, 123, 258, 156, 247, 177, 241, 209, 246, 282, 260, 336 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="RampLeft2" type="StaticBody2D" parent="."]
 position = Vector2( -5, 98 )
@@ -433,9 +436,15 @@ __meta__ = {
 self_modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 texture = ExtResource( 34 )
 polygon = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 560, 235, 599, 505, 614, 505, 619, 504, 636, 502, 647, 575 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="Outline2" type="Line2D" parent="InnerRightFrame/Polygon2D"]
+show_behind_parent = true
+points = PoolVector2Array( 502, 573, 501, 517, 558, 483, 560, 507, 592, 507, 587, 470, 552, 236, 560, 235, 599, 505, 614, 505, 619, 504, 636, 502, 647, 575, 502, 573 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 34 )
+joint_mode = 2
+antialiased = true
 
 [node name="PopBumper1" parent="." instance=ExtResource( 12 )]
 position = Vector2( 385, 97 )
@@ -656,6 +665,15 @@ polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 55
 [node name="Polygon2D" type="Polygon2D" parent="InnerFramePiece0"]
 texture = ExtResource( 34 )
 polygon = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 554, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234 )
+
+[node name="Outline" type="Line2D" parent="InnerFramePiece0/Polygon2D"]
+show_behind_parent = true
+points = PoolVector2Array( 547, 235, 541, 237, 541, 241, 548, 241, 550, 248, 554, 275, 522, 284, 521, 272, 520, 261, 515, 264, 525, 297, 541, 301, 554, 308, 565, 319, 556, 234, 552, 234, 547, 235 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 34 )
+joint_mode = 2
+antialiased = true
 
 [node name="Arrow" parent="InnerFramePiece0" instance=ExtResource( 27 )]
 position = Vector2( 536, 268 )
