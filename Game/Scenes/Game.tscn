@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Game/Art/Backdrop.png" type="Texture" id=35]
 [ext_resource path="res://Framework/GUI/Fonts/Raw/Project Space Font/Project Space.ttf" type="DynamicFontData" id=36]
 [ext_resource path="res://Framework/GUI/Fonts/Raw/gradientVector/GradientVector.otf" type="DynamicFontData" id=37]
+[ext_resource path="res://Game/Objects/LeverSystem.tscn" type="PackedScene" id=38]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.815686, 0.984314, 0, 1 )
@@ -786,3 +787,7 @@ custom_fonts/font = SubResource( 19 )
 text = "3"
 align = 1
 valign = 1
+
+[node name="LeverSystem" parent="." instance=ExtResource( 38 )]
+position = Vector2( 516, 287 )
+rotation = -0.299865
