@@ -219,18 +219,26 @@ rotation = -0.503199
 scale = Vector2( 1, 1.11021 )
 
 [node name="Line2D" type="Line2D" parent="LeverRight"]
+z_index = 10
 points = PoolVector2Array( 0, 0, 34, 0 )
 width = 5.0
-default_color = Color( 0.321569, 0.286275, 0.286275, 1 )
+default_color = Color( 0.352941, 0.352941, 0.352941, 1 )
+
+[node name="Line2D2" type="Line2D" parent="LeverRight/Line2D"]
+show_behind_parent = true
+position = Vector2( 0, -2 )
+points = PoolVector2Array( 0, 0, 34, 0 )
+width = 4.0
+default_color = Color( 0, 0, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverRight"]
 position = Vector2( 14.9416, 0.526184 )
 shape = SubResource( 3 )
 
 [node name="GutterLauncherRight" parent="." instance=ExtResource( 30 )]
-position = Vector2( 574, 485 )
-rotation = -0.00987466
-scale = Vector2( 0.1, 0.14 )
+position = Vector2( 575, 482 )
+rotation = -0.0472981
+scale = Vector2( 0.108605, 0.14 )
 z_index = 2
 animation = "default"
 frame = 0
@@ -243,18 +251,27 @@ scale = Vector2( 0.965674, 1.08389 )
 physics_material_override = SubResource( 9 )
 
 [node name="Line2D" type="Line2D" parent="LeverLeft"]
+z_index = 10
 points = PoolVector2Array( -2, 0, 40, 0 )
 width = 5.0
-default_color = Color( 0.282353, 0.282353, 0.282353, 1 )
+default_color = Color( 0.375, 0.375, 0.375, 1 )
+
+[node name="Line2D2" type="Line2D" parent="LeverLeft/Line2D"]
+show_behind_parent = true
+position = Vector2( 0, -1 )
+scale = Vector2( 1, 1 )
+points = PoolVector2Array( -2, 0, 40, 0 )
+width = 6.0
+default_color = Color( 0, 0, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverLeft"]
 position = Vector2( 18.5764, 0.193878 )
 shape = SubResource( 11 )
 
 [node name="GutterLauncherLeft" parent="." instance=ExtResource( 30 )]
-position = Vector2( 233, 475 )
-rotation = 0.152588
-scale = Vector2( 0.08, 0.14 )
+position = Vector2( 232, 478 )
+rotation = 0.222158
+scale = Vector2( 0.105165, 0.14 )
 animation = "default"
 frame = 0
 
