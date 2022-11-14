@@ -35,7 +35,7 @@
 [ext_resource path="res://Game/Art/TopCap.png" type="Texture" id=33]
 [ext_resource path="res://Game/Art/metal_texture.jpg" type="Texture" id=34]
 [ext_resource path="res://Game/Art/Backdrop.png" type="Texture" id=35]
-[ext_resource path="res://Framework/GUI/Fonts/Raw/Project Space Font/Project Space.ttf" type="DynamicFontData" id=36]
+[ext_resource path="res://Framework/GUI/Fonts/Raw/Arcade/ka1.ttf" type="DynamicFontData" id=36]
 [ext_resource path="res://Framework/GUI/Fonts/Raw/gradientVector/GradientVector.otf" type="DynamicFontData" id=37]
 [ext_resource path="res://Game/Objects/LeverSystem.tscn" type="PackedScene" id=38]
 
@@ -102,12 +102,16 @@ bounce = 0.1
 [sub_resource type="CircleShape2D" id=7]
 radius = 6.40311
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=20]
 size = 11
+outline_color = Color( 0, 0, 0, 0.490196 )
+extra_spacing_char = 2
 font_data = ExtResource( 36 )
 
 [sub_resource type="DynamicFont" id=19]
-size = 20
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 37 )
 
 [node name="Game" type="Node2D"]
@@ -178,7 +182,7 @@ self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 400, 293 )
 
 [node name="Background" type="Sprite" parent="Walls"]
-position = Vector2( 4, 0 )
+position = Vector2( 45, 41 )
 z_index = -10
 texture = ExtResource( 31 )
 
@@ -731,57 +735,59 @@ position = Vector2( 268, 66 )
 z_index = 1
 
 [node name="UI" type="Polygon2D" parent="."]
-position = Vector2( -329, 122.971 )
+position = Vector2( -332, 124 )
 scale = Vector2( 2.4589, 1.71776 )
-z_index = 2
+z_index = 30
 color = Color( 0, 0, 0, 0 )
 polygon = PoolVector2Array( 217.577, -74.4991, 170.401, -44.625, 141.933, 18.6457, 222.864, 18.0599, 231.404, -58.0993, 368.864, -57.5134, 376.184, 18.0599, 456.708, 17.474, 433.934, -41.6958, 399.365, -74.4991, 302.981, -84.9779 )
 script = ExtResource( 18 )
 
 [node name="gameName" type="Label" parent="UI"]
-margin_left = 204.156
-margin_top = -69.8419
-margin_right = 412.156
-margin_bottom = -55.8419
+margin_left = 146.814
+margin_top = -44.8258
+margin_right = 226.814
+margin_bottom = -15.8258
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 20 )
+text = "GALAXY 
+PINBALL"
 align = 1
 
 [node name="score" type="Label" parent="UI"]
-margin_left = 379.031
-margin_top = -55.2877
-margin_right = 437.031
-margin_bottom = -36.2877
+margin_left = 381.065
+margin_top = 9.31445
+margin_right = 453.065
+margin_bottom = 28.3145
 custom_fonts/font = SubResource( 19 )
 text = "Score"
 align = 1
 valign = 1
 
 [node name="score_counter" type="Label" parent="UI/score"]
-margin_left = 1.22002
-margin_top = 29.6899
-margin_right = 68.22
-margin_bottom = 50.6899
+margin_left = 1.0
+margin_top = 32.0
+margin_right = 78.0
+margin_bottom = 53.0
 custom_fonts/font = SubResource( 19 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="lives" type="Label" parent="UI"]
-margin_left = 160.641
-margin_top = -52.3769
-margin_right = 219.641
-margin_bottom = -32.3769
+margin_left = 147.22
+margin_top = 8.15014
+margin_right = 222.22
+margin_bottom = 28.1501
 custom_fonts/font = SubResource( 19 )
 text = "Lives"
 align = 1
 valign = 1
 
 [node name="live_counter" type="Label" parent="UI/lives"]
-margin_left = -9.0
-margin_top = 29.0
-margin_right = 55.0
-margin_bottom = 53.0
+margin_left = -4.81314
+margin_top = 33.9858
+margin_right = 72.1869
+margin_bottom = 57.9858
 custom_fonts/font = SubResource( 19 )
 text = "3"
 align = 1

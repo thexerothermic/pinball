@@ -20,6 +20,7 @@ func bumped(body:Node):
 		#if health == 0, destroy ship
 		if (health == 0):
 			#play destroy animation
+			
 			_animated_sprite.play("destroy")
 			
 			#send signal

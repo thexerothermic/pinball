@@ -13,6 +13,7 @@ func receive_ball(body:Node):
 	if(body is RigidBody2D):
 		body.go_through_wormhole = true
 		SoundSystem.play_sound("Wormhole")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

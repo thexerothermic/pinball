@@ -64,10 +64,10 @@ align = 1
 valign = 1
 
 [node name="Scorebox" type="HBoxContainer" parent="."]
-margin_left = 40.0
-margin_top = 137.0
-margin_right = 781.0
-margin_bottom = 227.0
+margin_left = 53.0
+margin_top = 106.0
+margin_right = 794.0
+margin_bottom = 196.0
 
 [node name="YourScore" type="Label" parent="Scorebox"]
 margin_top = 26.0
@@ -87,27 +87,27 @@ text = "0"
 align = 1
 
 [node name="PlayAgain" type="Button" parent="."]
-margin_left = 479.0
-margin_top = 212.0
-margin_right = 777.0
-margin_bottom = 295.0
+margin_left = 487.0
+margin_top = 196.0
+margin_right = 785.0
+margin_bottom = 279.0
 custom_fonts/font = SubResource( 12 )
 text = "Play Again"
 
 [node name="HighScore" type="Label" parent="."]
-margin_left = 18.0
-margin_top = 258.0
-margin_right = 459.0
-margin_bottom = 300.0
+margin_left = 40.0
+margin_top = 222.0
+margin_right = 481.0
+margin_bottom = 264.0
 custom_fonts/font = SubResource( 13 )
 text = "High Scores"
 uppercase = true
 
 [node name="Leaderbox" type="GridContainer" parent="."]
-margin_left = 15.0
-margin_top = 312.0
-margin_right = 790.0
-margin_bottom = 597.0
+margin_left = 41.0
+margin_top = 300.0
+margin_right = 782.0
+margin_bottom = 585.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 200
 columns = 2
