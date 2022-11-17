@@ -60,7 +60,7 @@ margin_bottom = 4.57764e-05
 theme = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
 bbcode_text = "[center]Galaxy Pinball[/center]"
-text = "[center]Galaxy Pinball[/center]"
+text = "Galaxy Pinball"
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu"]

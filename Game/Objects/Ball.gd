@@ -75,6 +75,11 @@ func _integrate_forces(state):
 	if(go_through_wormhole):
 		state.linear_velocity = Vector2(0,0)
 		state.set_transform(Transform2D(0,get_node("../WormholeOut").position))
+		get_node("Trail").clear_points()
+		QuickTimer.create_timer(get_node("Trail"),"clear_points",[],0.01)
+		QuickTimer.create_timer(get_node("Trail"),"clear_points",[],0.02)
+		QuickTimer.create_timer(get_node("Trail"),"clear_points",[],0.03)
+		QuickTimer.create_timer(get_node("Trail"),"clear_points",[],0.04)
 		state.set_linear_velocity(Vector2(rng.randf_range(400,420),rng.randf_range(369,400)))
 		go_through_wormhole = false
 		
