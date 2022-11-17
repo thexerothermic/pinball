@@ -4,13 +4,14 @@ extends StaticBody2D
 #	connect("body_entered",self,"ball_entered")
 
 #func ball_entered(ball_ref:RigidBody2D):
-var hit_effect_ref=preload("res://Game/Objects/TargetHitEffect.tscn")
+var hit_effect_ref=preload("res://Game/Objects/NewTargetHitEffect.tscn")
 const points = 100 #how many points this target is worth
 
-func create_hit_effect():
+func create_hit_effect(ball_ref):
 	var x=hit_effect_ref.instance()
 	x.global_position=self.global_position
 	get_parent().get_parent().get_parent().add_child(x)
+	x.look_at(ball_ref.global_position)
 	
 func activate():
 	self.show()
@@ -21,7 +22,7 @@ func bumped(ball_ref:RigidBody2D):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	create_hit_effect()
+	create_hit_effect(ball_ref)
 	
 	if(self.visible):
 #		ball_ref.linear_velocity*=-1.2
