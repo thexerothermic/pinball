@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Art/Wormhole_frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Game/Art/Worm.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2( 0.8, 0.8 )
+z_index = 10
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.784314 )
+frames = ExtResource( 1 )
+frame = 39
+speed_scale = 0.4
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.196078 )
+frames = ExtResource( 1 )
+frame = 4
+speed_scale = 0.1
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.196078 )
+frames = ExtResource( 1 )
+frame = 10
+speed_scale = 0.25
+playing = true
+flip_v = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.196078 )
+frames = ExtResource( 1 )
+speed_scale = 0.3
+playing = true
+flip_h = true
+flip_v = true
+
+[node name="Worm" type="Sprite" parent="."]
+texture = ExtResource( 2 )

@@ -698,6 +698,7 @@ joint_mode = 2
 antialiased = true
 
 [node name="Arrow" parent="InnerFramePiece0" instance=ExtResource( 27 )]
+visible = false
 position = Vector2( 536, 268 )
 rotation = -3.3458
 __meta__ = {
