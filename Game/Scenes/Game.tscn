@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -28,7 +28,6 @@
 [ext_resource path="res://Game/Objects/ArrowCluster.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Game/Objects/Arrow.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Game/Art/NewTable/GutterWall.png" type="Texture" id=28]
-[ext_resource path="res://Framework/Audio/SFX/bump2.wav" type="AudioStream" id=29]
 [ext_resource path="res://Game/Objects/GutterLauncher.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Game/Art/background.png" type="Texture" id=31]
 [ext_resource path="res://Game/Art/NewWalls.png" type="Texture" id=32]
@@ -291,16 +290,10 @@ left_or_right = "Neither"
 position = Vector2( 492, 418 )
 rotation = -0.0182214
 
-[node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper"]
-stream = ExtResource( 29 )
-
 [node name="Bumper2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 317, 419 )
 rotation = -0.0109179
 scale = Vector2( -1, 1 )
-
-[node name="bumper_sound" type="AudioStreamPlayer" parent="Bumper2"]
-stream = ExtResource( 29 )
 
 [node name="BallChute" parent="." instance=ExtResource( 6 )]
 position = Vector2( 337, 580 )
