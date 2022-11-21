@@ -18,7 +18,7 @@ func bumped(body:Node):
 
 func play_bump_animation():
 	get_node("AnimationPlayer").play("bump")
-	$bumper_sound.play()
+	SoundSystem.play_sound("bump2")
 	get_parent().get_node("UI").addPoints(points)
 	animation_played = true
 	
