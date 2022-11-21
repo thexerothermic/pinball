@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Art/NewTable/Arrow_On.png" type="Texture" id=1]
 [ext_resource path="res://Game/Art/NewTable/Arrow_Off.png" type="Texture" id=2]
 [ext_resource path="res://Game/Objects/Arrow.gd" type="Script" id=3]
-[ext_resource path="res://Game/Art/lighting/spot.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -35,10 +34,3 @@ animation = "off"
 playing = true
 offset = Vector2( -199, -108 )
 script = ExtResource( 3 )
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, -3 )
-scale = Vector2( 0.640625, 0.617188 )
-texture = ExtResource( 4 )
-color = Color( 1, 0.94902, 0, 1 )
-energy = 0.25
