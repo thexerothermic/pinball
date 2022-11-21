@@ -1,6 +1,6 @@
 extends RigidBody2D
 onready var _animated_sprite = $AnimatedSprite
-const points = 50
+const points = 100
 
 
 var ballhit_ref=preload("res://Game/Objects/BallHitEffect.tscn")

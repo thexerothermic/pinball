@@ -9,10 +9,12 @@ var wiggle_positive = false
 var wiggle_negative = false
 var rotate_to_center = false
 var hit_effect_ref=preload("res://Game/Objects/NewTargetHitEffect.tscn")
+const points = 250
 
 func _ready():
 	thread = Thread.new()
 	_animated_sprite.play("enter")
+	SoundSystem.play_sound("spaceship_enter")
 
 func bumped(body:Node):
 	var rng = RandomNumberGenerator.new()
@@ -20,17 +22,19 @@ func bumped(body:Node):
 	#Called by the ball when this object is touched by the ball
 	if(body is RigidBody2D):
 		if(!self.invulnerable):
-			#play sound
-			SoundSystem.play_sound("bump1")
-			
 			#decrement health if not invulnerable
 			health = health - 1
+			#add points
+			get_parent().get_node("UI").addPoints(250)
 		
 		#if health == 0, destroy ship
 		if (health == 0):
 			#play destroy animation
 			
 			_animated_sprite.play("destroy")
+			
+			#play sound
+			SoundSystem.play_sound("spaceship_destroy")
 			create_hit_effect(body)
 			#send signal
 			emit_signal("spaceship_destroy", self.position)
@@ -48,7 +52,7 @@ func bumped(body:Node):
 				_animated_sprite.play("on_hit")
 				wiggle_positive = true
 				invulnerable = true
-			
+				SoundSystem.play_sound("spaceship_hit")
 			
 			
 		
@@ -67,6 +71,9 @@ func create_hit_effect(ball_ref):
 	x.global_position=self.global_position
 	get_parent().get_parent().add_child(x)
 	x.look_at(ball_ref.global_position)
+	
+func get_points():
+	return points
 	
 func _physics_process(delta):
 	var delta_times_four = delta * 4
