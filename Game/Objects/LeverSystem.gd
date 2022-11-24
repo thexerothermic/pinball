@@ -17,7 +17,6 @@ func _ready():
 func ball_entered(ball_ref):
 	
 	switch()
-	SoundSystem.play_sound(lever_sound)
 	
 
 func switch():
@@ -26,6 +25,7 @@ func switch():
 		up=false
 		emit_signal("lever_down")
 		$LeverArrow.turn_off()
+		SoundSystem.play_sound(lever_sound)
 	#elif(!up):
 		#get_node("AnimationPlayer").play("Up")
 		#up=true
