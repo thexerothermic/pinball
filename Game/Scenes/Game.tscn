@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Framework/Audio/SFX/flipper.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Game/Objects/Bumper.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Objects/Flipper.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Objects/BallChute.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/Scripts/BallChute.gd" type="Script" id=7]
 [ext_resource path="res://Game/Scripts/flipper.gd" type="Script" id=8]
 [ext_resource path="res://Game/Scripts/Launcher.gd" type="Script" id=9]
 [ext_resource path="res://Framework/Audio/SFX/ball_crash.wav" type="AudioStream" id=10]
@@ -42,7 +41,7 @@
 bg_color = Color( 0.815686, 0.984314, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 12.5924, 15 )
+extents = Vector2( 12.5924, 32.5239 )
 
 [sub_resource type="PhysicsMaterial" id=12]
 friction = 0.0
@@ -168,8 +167,9 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher/Area2D"]
-position = Vector2( 5.38171, 0.648193 )
+position = Vector2( 2.82123, -16.6877 )
 rotation = -0.14664
+scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="Pressure" type="AudioStreamPlayer2D" parent="Launcher"]
@@ -297,7 +297,6 @@ scale = Vector2( -1, 1 )
 
 [node name="BallChute" parent="." instance=ExtResource( 6 )]
 position = Vector2( 337, 580 )
-script = ExtResource( 7 )
 
 [node name="chute_sound" type="AudioStreamPlayer" parent="BallChute"]
 stream = ExtResource( 10 )
