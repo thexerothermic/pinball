@@ -8,7 +8,7 @@ var invulnerable = false
 var wiggle_positive = false
 var wiggle_negative = false
 var rotate_to_center = false
-var hit_effect_ref=preload("res://Game/Objects/NewTargetHitEffect.tscn")
+var hit_effect_ref=preload("res://Game/Objects/TargetHitEffect.tscn")
 const points = 250
 
 func _ready():

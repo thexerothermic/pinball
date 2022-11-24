@@ -37,6 +37,7 @@ func bumped(ball_ref:RigidBody2D):
 		get_parent().get_parent().target_check()
 		
 		get_tree().get_root().get_node("Game").get_node("UI").addPoints(points)
+		SoundSystem.play_sound("target_hit")
 		
 #returns how many points this target is worth for upgrade calculation
 func get_points():
