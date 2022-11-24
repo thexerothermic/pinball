@@ -30,7 +30,6 @@ func bumped(ball_ref:RigidBody2D):
 		var randomYVelocity = rng.randf_range(100, 200)
 		ball_ref.linear_velocity-=((ball_ref.global_position-self.global_position)+Vector2(randomXVelocity,randomYVelocity)).normalized()*450
 		
-		SoundSystem.play_sound("target_hit")
 		self.hide()
 #		get_node("CollisionShape2D").disabled=true
 		get_node("CollisionShape2D").set_deferred("disabled",true)

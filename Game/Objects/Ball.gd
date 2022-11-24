@@ -1,12 +1,14 @@
 extends RigidBody2D
 
-
+var ball_class = get_script()
 var myTimer:Timer
 var reset = false
 const is_ball = true
 var ball_points = 0
 var go_through_wormhole = false
 var rng = RandomNumberGenerator.new()
+
+
 func _ready():
 	
 	SoundSystem.play_sound("new_ball")
@@ -44,7 +46,7 @@ func challenge():
 
 func bumped(body:Node):
 	#Called when the ball hits an object. The ball is in charge of creating bumped requests on other objects
-	if(body.has_method("bumped")):
+	if(body.has_method("bumped") and !(body is ball_class)):
 		body.bumped(self)
 	if(body.has_method("get_points")):
 		ball_points += body.get_points()

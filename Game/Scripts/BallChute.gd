@@ -1,5 +1,5 @@
 extends Area2D
-
+var game
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,17 +8,16 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.connect("body_entered",self,"reset_ball")
+	game = get_owner()
 func reset_ball(body:Node):
+	
 	$chute_sound.play()
-#	body.set("reset",true)
 	body.queue_free()
-	QuickTimer.create_timer(get_parent().get_node("Launcher"),"spawn_ball",[],1)
-#	get_parent().get_node("Launcher").spawn_ball()
-	get_parent().get_node("UI").sub_life()
+	game.live_balls -= 1
+	
+	if(game.live_balls == 0):
+		QuickTimer.create_timer(get_parent().get_node("Launcher"),"spawn_ball",[],1)
+	#	get_parent().get_node("Launcher").spawn_ball()
+		get_parent().get_node("UI").sub_life()
+		game.live_balls = 1
 
-
-#	print("attempt reset")
-#	print(body.reset)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

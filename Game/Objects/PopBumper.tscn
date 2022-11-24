@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Scripts/PopBumper.gd" type="Script" id=1]
 [ext_resource path="res://Game/Art/metal_texture.jpg" type="Texture" id=2]
 [ext_resource path="res://Game/Art/PopBumper/popbumperon.png" type="Texture" id=3]
 [ext_resource path="res://Game/Art/PopBumper/popbumperoff.png" type="Texture" id=4]
-[ext_resource path="res://Game/Art/lighting/spot.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 18.0278
@@ -45,12 +44,5 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.085, 0.085 )
 frames = SubResource( 6 )
-
-[node name="Light2D" type="Light2D" parent="AnimatedSprite"]
-position = Vector2( 9.91821e-05, 5.88234 )
-scale = Vector2( 7.35294, 7.44485 )
-enabled = false
-texture = ExtResource( 5 )
-color = Color( 0.117647, 0.682353, 0.894118, 1 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
