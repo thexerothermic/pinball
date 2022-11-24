@@ -45,29 +45,45 @@ font_data = ExtResource( 6 )
 size = 20
 font_data = ExtResource( 6 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 4 )
 
-[node name="Background" type="Polygon2D" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0075
+anchor_bottom = 1.01333
+margin_right = -6.10352e-05
 texture = ExtResource( 2 )
-polygon = PoolVector2Array( 0, 0, 800, 0, 800, 600, 0, 600 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="GameOver" type="Label" parent="."]
-margin_left = 5.0
-margin_top = 3.0
-margin_right = 802.0
-margin_bottom = 141.0
+anchor_left = 0.00625
+anchor_top = 0.005
+anchor_right = 1.0025
+anchor_bottom = 0.235
+margin_right = -6.10352e-05
 size_flags_stretch_ratio = 1.5
 custom_fonts/font = SubResource( 9 )
 text = "GAME OVER"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Scorebox" type="HBoxContainer" parent="."]
-margin_left = 53.0
-margin_top = 106.0
-margin_right = 794.0
-margin_bottom = 196.0
+anchor_left = 0.06625
+anchor_top = 0.176667
+anchor_right = 0.9925
+anchor_bottom = 0.326667
+margin_bottom = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="YourScore" type="Label" parent="Scorebox"]
 margin_top = 26.0
@@ -87,30 +103,40 @@ text = "0"
 align = 1
 
 [node name="PlayAgain" type="Button" parent="."]
-margin_left = 487.0
-margin_top = 196.0
-margin_right = 785.0
-margin_bottom = 279.0
+anchor_left = 0.60875
+anchor_top = 0.326667
+anchor_right = 0.98125
+anchor_bottom = 0.465
+margin_top = 1.52588e-05
 custom_fonts/font = SubResource( 12 )
 text = "Play Again"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="HighScore" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 222.0
-margin_right = 481.0
-margin_bottom = 264.0
+anchor_left = 0.05
+anchor_top = 0.37
+anchor_right = 0.60125
+anchor_bottom = 0.44
 custom_fonts/font = SubResource( 13 )
 text = "High Scores"
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Leaderbox" type="GridContainer" parent="."]
-margin_left = 41.0
-margin_top = 300.0
-margin_right = 782.0
-margin_bottom = 585.0
+anchor_left = 0.05125
+anchor_top = 0.5
+anchor_right = 0.9775
+anchor_bottom = 0.975
 custom_constants/vseparation = 0
 custom_constants/hseparation = 200
 columns = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="HBox1" type="HBoxContainer" parent="Leaderbox"]
 margin_right = 250.0
@@ -228,14 +254,22 @@ text = "JJJ: 1000"
 uppercase = true
 
 [node name="Popup" type="Popup" parent="."]
-margin_left = -3.0
-margin_top = 104.0
-margin_right = 800.0
-margin_bottom = 602.0
+anchor_left = -0.00375
+anchor_top = 0.173333
+anchor_right = 2.0
+anchor_bottom = 2.00333
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="Polygon2D" type="Polygon2D" parent="Popup"]
+[node name="Polygon2D" type="TextureRect" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
-polygon = PoolVector2Array( 3, 3, 802, 8, 804, 497, 3, 495 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="Popup"]
 margin_left = 89.0
@@ -273,6 +307,8 @@ margin_right = 402.0
 margin_bottom = 306.0
 custom_fonts/font = SubResource( 20 )
 align = 1
+caret_blink = true
+caret_blink_speed = 0.5
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="Popup/Button" to="." method="_on_Button_pressed"]

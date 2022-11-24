@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 var score_file = "res://Framework/saves/scores.sav"
 var name_file = "res://Framework/saves/names.sav"
 var highscores = [10000,9000,8000,7000,6000,5000,4000,3000,2000,1000]
