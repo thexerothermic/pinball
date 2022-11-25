@@ -2,6 +2,7 @@ extends AnimatedSprite
 export var left_or_right="Left"
 
 var points = 50
+var floatingPoints = preload("res://Game/Objects/FloatingPoints.tscn")
 
 func _ready():
 	get_node("Area2D").connect("body_entered",self,"ball_entered")
@@ -12,6 +13,10 @@ func ball_entered(ball_ref):
 	self.frame=0
 	self.play("launch")
 	get_parent().get_node("UI").addPoints(points)
+	#add floating text as points
+	var text = floatingPoints.instance()
+	text.amount = points
+	add_child(text)
 	
 	SoundSystem.play_sound("boing")
 	QuickTimer.create_timer(self,"activate_lever",[],0.2)
