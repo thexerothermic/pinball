@@ -9,7 +9,8 @@ var wiggle_positive = false
 var wiggle_negative = false
 var rotate_to_center = false
 var hit_effect_ref=preload("res://Game/Objects/TargetHitEffect.tscn")
-const points = 250
+const hitpoints = 50
+const destroyPoints = 500
 var floatingPoints = preload("res://Game/Objects/FloatingPoints.tscn")
 
 func _ready():
@@ -26,16 +27,22 @@ func bumped(body:Node):
 			#decrement health if not invulnerable
 			health = health - 1
 			#add points
-			get_parent().get_node("UI").addPoints(points)
+			get_parent().get_node("UI").addPoints(hitpoints)
 			#add floating text as points
 			var text = floatingPoints.instance()
-			text.amount = points
+			text.amount = hitpoints
 			add_child(text)
 		
 		#if health == 0, destroy ship
 		if (health == 0):
-			#play destroy animation
 			
+			get_parent().get_node("UI").addPoints(destroyPoints)
+			#add floating text as points
+			var text = floatingPoints.instance()
+			text.amount = destroyPoints
+			text.position= self.position
+			get_parent().add_child(text)
+			#play destroy animation
 			_animated_sprite.play("destroy")
 			
 			#play sound
@@ -43,6 +50,7 @@ func bumped(body:Node):
 			create_hit_effect(body)
 			#send signal
 			emit_signal("spaceship_destroy", self.position)
+			
 			
 			#remove ship from scene
 			queue_free()	
@@ -77,8 +85,6 @@ func create_hit_effect(ball_ref):
 	get_parent().get_parent().add_child(x)
 	x.look_at(ball_ref.global_position)
 	
-func get_points():
-	return points
 	
 func _physics_process(delta):
 	var delta_times_four = delta * 4
@@ -99,4 +105,3 @@ func _physics_process(delta):
 			rotation = 0
 			rotate_to_center = false
 			self.invulnerable = false
-

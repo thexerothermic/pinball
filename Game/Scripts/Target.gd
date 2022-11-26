@@ -5,7 +5,7 @@ extends StaticBody2D
 
 #func ball_entered(ball_ref:RigidBody2D):
 var hit_effect_ref=preload("res://Game/Objects/NewTargetHitEffect.tscn")
-const points = 100 #how many points this target is worth
+const points = 250 #how many points this target is worth
 var floatingPoints = preload("res://Game/Objects/FloatingPoints.tscn")
 
 func create_hit_effect(ball_ref):
@@ -44,9 +44,3 @@ func bumped(ball_ref:RigidBody2D):
 		text.position=ball_ref.global_position#-Vector2(350,50)
 		get_parent().get_parent().get_parent().call_deferred("add_child",text)
 		SoundSystem.play_sound("target_hit")
-
-	
-		
-#returns how many points this target is worth for upgrade calculation
-func get_points():
-	return points

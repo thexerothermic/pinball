@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const points = 50 #how many points this target is worth
+const points = 100 #how many points this target is worth
 var animation_played = false
 var floatingPoints = preload("res://Game/Objects/FloatingPoints.tscn")
 

@@ -48,9 +48,9 @@ func bumped(body:Node):
 	#Called when the ball hits an object. The ball is in charge of creating bumped requests on other objects
 	if(body.has_method("bumped") and !(body is ball_class)):
 		body.bumped(self)
-	if(body.has_method("get_points")):
-		ball_points += body.get_points()
-		print("current ball has " + str(ball_points) + " points")
+	#if(body.has_method("get_points")):
+	#	ball_points += body.get_points()
+	#	print("current ball has " + str(ball_points) + " points")
 var max_vel=2000
 func _integrate_forces(state):
 	

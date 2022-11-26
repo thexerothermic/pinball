@@ -16,7 +16,8 @@ func ball_entered(ball_ref):
 	#add floating text as points
 	var text = floatingPoints.instance()
 	text.amount = points
-	add_child(text)
+	text.position=ball_ref.global_position
+	get_parent().add_child(text)
 	
 	SoundSystem.play_sound("boing")
 	QuickTimer.create_timer(self,"activate_lever",[],0.2)
