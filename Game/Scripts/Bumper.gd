@@ -28,7 +28,8 @@ func play_bump_animation():
 	#make floating text
 	var text = floatingPoints.instance()
 	text.amount = points
-	add_child(text)
+	text.position=self.position
+	get_parent().add_child(text)
 	animation_played = true
 #returns how many points this target is worth for upgrade calculation
 func get_points():
