@@ -41,7 +41,8 @@ func bumped(ball_ref:RigidBody2D):
 		#add floating text as points
 		var text = floatingPoints.instance()
 		text.amount = points
-		add_child(text)
+		text.global_position=ball_ref.global_position
+		get_parent().get_parent().call_deferred("add_child",text)
 		SoundSystem.play_sound("target_hit")
 
 	
