@@ -11,7 +11,7 @@ func _ready():
 	game = get_owner()
 func reset_ball(body:Node):
 	
-	$chute_sound.play()
+	SoundSystem.play_sound("ball_crash")
 	body.queue_free()
 	game.live_balls -= 1
 	
