@@ -10,6 +10,7 @@ var wiggle_negative = false
 var rotate_to_center = false
 var hit_effect_ref=preload("res://Game/Objects/TargetHitEffect.tscn")
 const points = 250
+var floatingPoints = preload("res://Game/Objects/FloatingPoints.tscn")
 
 func _ready():
 	thread = Thread.new()
@@ -25,7 +26,11 @@ func bumped(body:Node):
 			#decrement health if not invulnerable
 			health = health - 1
 			#add points
-			get_parent().get_node("UI").addPoints(250)
+			get_parent().get_node("UI").addPoints(points)
+			#add floating text as points
+			var text = floatingPoints.instance()
+			text.amount = points
+			add_child(text)
 		
 		#if health == 0, destroy ship
 		if (health == 0):

@@ -2,6 +2,10 @@ extends RigidBody2D
 
 const points = 50 #how many points this target is worth
 var animation_played = false
+var floatingPoints = preload("res://Game/Objects/FloatingPoints.tscn")
+
+
+
 func bumped(body:Node):
 	#Called by the ball when this object is touched by the ball
 	if(body is RigidBody2D):		#If it's a ball...
@@ -15,13 +19,17 @@ func bumped(body:Node):
 		if(body.linear_velocity.length()<550):
 			body.linear_velocity*=(550/body.linear_velocity.length())
 		play_bump_animation()
+		
 
 func play_bump_animation():
 	get_node("AnimationPlayer").play("bump")
 	SoundSystem.play_sound("bump2")
 	get_parent().get_node("UI").addPoints(points)
+	#make floating text
+	var text = floatingPoints.instance()
+	text.amount = points
+	add_child(text)
 	animation_played = true
-	
 #returns how many points this target is worth for upgrade calculation
 func get_points():
 	if(animation_played):
