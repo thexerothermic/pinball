@@ -42,6 +42,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Title" parent="Panel" instance=ExtResource( 3 )]
+anchor_left = 0.221
+anchor_right = 0.908784
+anchor_bottom = 0.228571
+margin_left = -16.0473
+margin_top = 19.0
+margin_right = -16.0474
+margin_bottom = 71.0
+theme = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_text = "[center]Galaxy Pinball[/center]"
+text = "Galaxy Pinball"
+scroll_active = false
+
 [node name="Menu" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,19 +63,6 @@ margin_left = 244.0
 margin_top = 233.0
 margin_right = -260.0
 margin_bottom = -262.0
-
-[node name="Title" parent="Menu" instance=ExtResource( 3 )]
-anchor_left = 0.0641892
-anchor_right = 0.908784
-anchor_bottom = 0.228571
-margin_top = -52.0
-margin_right = -6.10352e-05
-margin_bottom = 4.57764e-05
-theme = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 6 )
-bbcode_text = "[center]Galaxy Pinball[/center]"
-text = "Galaxy Pinball"
-scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
 anchor_left = 0.0641892
