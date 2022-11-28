@@ -46,6 +46,8 @@ func check_new_score():
 			newHighScore = n
 			highscores.pop_back()
 			highscores.insert(newHighScore, newScore)
+			#make names match up with scores
+			names.pop_back()
 			$Popup.show()
 			newHighScoreCheck = true
 			break
@@ -69,7 +71,7 @@ func update_scores():
 func _on_Button_pressed():
 	var newName = $Popup/Initials.get_text()
 	if(newName.length() <=3 && newName.length() > 0 ):
-		names[newHighScore] = newName
+		names.insert(newHighScore, newName)
 		$Popup.hide()
 		update_scores()
 		newHighScoreCheck = false
