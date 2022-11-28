@@ -44,7 +44,8 @@ func check_new_score():
 	for n in 10:
 		if newScore > highscores[n]:
 			newHighScore = n
-			highscores[n] = newScore
+			highscores.pop_back()
+			highscores.insert(newHighScore, newScore)
 			$Popup.show()
 			newHighScoreCheck = true
 			break
