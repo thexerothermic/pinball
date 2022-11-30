@@ -2,7 +2,7 @@ extends Control
 var score_file = "res://Framework/saves/scores.sav"
 var name_file = "res://Framework/saves/names.sav"
 var highscores = [524288,262144,131072,65536,32768,16384,8192,4096,2048,1024]
-var names = ["RB","JF","PH","NS","BM","CS","D2L","HHH","III","JJJ"]
+var names = ["RB","JF","PH","NS","BM","CS","D2L","JM","KK","EB"]
 var newScore = 0
 var newHighScore = 0
 var newHighScoreCheck = false
