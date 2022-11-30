@@ -14,5 +14,5 @@ Download the zipped file under Builds -> Windows
 Extract the contents of the file into a folder using 7zip: https://www.7-zip.org/
 A good place for this folder would be C:\Program Files.
 Make sure to keep the .exe and the .pck files in the same folder.
-Start the .exe
+Start the .exe.
 If desired, create a shortcut to the .exe using standard method for your version of Windows.
